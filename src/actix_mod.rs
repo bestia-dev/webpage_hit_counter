@@ -6,8 +6,9 @@
 
 use actix_web::{http::header, HttpResponse, Responder};
 
-pub async fn get_image() -> impl Responder {
-    let hit_count = crate::postgres_mod::select_count().await.unwrap();
+pub async fn get_image(db_pool: actix_web::web::Data<deadpool_postgres::Pool>) -> impl Responder {
+    println!("get_image");
+    let hit_count = crate::postgres_mod::select_count(db_pool).await.unwrap();
 
     HttpResponse::Ok()
     .append_header(header::ContentType(mime::IMAGE_SVG))

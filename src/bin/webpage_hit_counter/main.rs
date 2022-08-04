@@ -16,8 +16,19 @@ use webpage_hit_counter::*;
 async fn main() -> std::io::Result<()> {
     println!("Actix web server started!");
 
-    HttpServer::new(|| App::new().route("/get_image", web::get().to(get_image)))
-        .bind(("127.0.0.1", 8080))?
-        .run()
-        .await
+    let pool = deadpool_postgres_start().await;
+
+    let http_server_result = HttpServer::new(move || {
+        App::new()
+            .app_data(web::Data::new(pool.clone()))
+            .route("/get_image", web::get().to(get_image))
+    })
+    .bind(("127.0.0.1", 8080))?
+    .run()
+    .await;
+
+    println!("");
+    println!("Actix web server stopped!");
+    // return
+    http_server_result
 }

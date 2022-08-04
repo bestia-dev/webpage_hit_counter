@@ -234,10 +234,12 @@
 
 // access to modules
 mod actix_mod;
+mod deadpool_mod;
 mod postgres_mod;
 
 // `pub use` allows the caller of the lib to access modules functions, structs or all(*)
 pub use actix_mod::*;
+pub use deadpool_mod::*;
 pub use postgres_mod::*;
 
 // The `main.rs` uses the `anyhow` error library.
