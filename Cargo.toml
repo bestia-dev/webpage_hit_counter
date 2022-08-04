@@ -1,6 +1,6 @@
 [package]
 name = "webpage_hit_counter"
-version = "1.0.26"
+version = "1.0.30"
 description = "Basic Rust project template for CLI and library, more than just `cargo new hello`"
 authors = ["bestia.dev"]
 homepage = "https://bestia.dev"
@@ -20,5 +20,3 @@ anyhow="1.0.56"
 actix-web = "4.1.0"
 mime="0.3.16"
 tokio-postgres="0.7.6"
-deadpool-postgres = "0.10.2"
-dotenv = "0.15.0"

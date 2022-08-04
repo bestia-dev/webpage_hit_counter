@@ -7,6 +7,8 @@
 use actix_web::{http::header, HttpResponse, Responder};
 
 pub async fn get_image() -> impl Responder {
+    let hit_count = crate::postgres_mod::select_count().await.unwrap();
+
     HttpResponse::Ok()
     .append_header(header::ContentType(mime::IMAGE_SVG))
     .body(format!(r##"
@@ -30,8 +32,8 @@ width="82" height="20">
  <g fill="#fff" text-anchor="middle" font-family="Verdana,DejaVu Sans,Geneva,sans-serif" font-size="11"> 
    <text x="18" y="15" fill="#010101" fill-opacity=".3">Hits</text>
    <text x="18" y="14" fill="#fff">Hits</text>
-   <text x="60" y="15" fill="#010101" fill-opacity=".3">14</text>
-   <text x="60" y="14" fill="#fff">14</text>
+   <text x="60" y="15" fill="#010101" fill-opacity=".3">{hit_count}</text>
+   <text x="60" y="14" fill="#fff">{hit_count}</text>
  </g>
 </svg>    
     "##))
