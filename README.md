@@ -4,7 +4,7 @@
 
 [comment]: # (auto_cargo_toml_to_md start)
 
-**Basic Rust project template for CLI and library, more than just `cargo new hello`**  
+**05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)**  
 ***version: 1.0.4 date: 2022-04-21 author: [bestia.dev](bestia.dev) repository: [Github](https://github.com/bestia-dev/webpage_hit_counter)***  
 
 [comment]: # (auto_cargo_toml_to_md end)
@@ -20,225 +20,240 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/blob/main/LICENSE) [![Rust](https://github.com/bestia-dev/webpage_hit_counter/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 
-## Edit this README.md file
 
-Edit this README file with your data. But leave the markers: auto_md_to_doc_comments, auto_lines_of_code, auto_cargo_toml_to_md and similar, because the automation tasks need them.  
-Modify the title and description only in Cargo.toml. Automation tasks will copy that into README.md.  
-Lines of code are filled automatically from automation tasks.  
-Find `bestia.dev` everywhere and change it with your username.
+Hashtags: #rustlang #tutorial #pwa  
+My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
 
-## Motivation
+## Intro
 
-My first line I typed when I learned the Rust language was `cargo new hello`. It is extraordinary for learning Rust, but it is a rudimentary example, not really useful in practical life.
+Welcome to bestia.dev !  
+Learning Rust and Wasm programming and having fun.  
+I just love  programming !  
 
-I created this project template `webpage_hit_counter` for a simple CLI application that has all the moving parts for a real life project.
+This is my fifth video tutorial about programming in Rust.  
+In this tutorial I will show step by step how to create a simple web server with a database.  
+I am using the Rust development environment inside a docker container we created in the first two video tutorials. You can find them in my youtube channel :"bestia dev Tutorials for Rust programming language". Just type "bestia dev" in the youtube search box.  
+<https://www.youtube.com/watch?v=ZgziGt1P9hA&list=PLbXDHfG-c3U8pkyN1D7SwF3ItA3uTyoWW>
 
-## Separate main.rs and lib.rs
+## webpage hit counter
 
-It is always good to split the project between a `main.rs` (executable) and a `lib.rs` (library crate).
+Today's project is a "webpage hit counter".
+I want to see the number of visitors to my webpages. There are many different options, but the simplest one is an old-school webpage hit counter.  
+<https://en.wikipedia.org/wiki/Web_counter>
+This is nothing more then an image on the page that is sourced from a web application. This web application can then count the hits and dynamically produce a picture with the number of hits. We are lucky that images (for now) don't have limitation for cross-domain or cross-origin. I will not really count unique visitors, because that is complicated. I will count simply every hit.  
 
-Even for the smallest project. Maybe some other program will use the library eventually.
+```plantuml
+@startuml
+browser -> web_server: get html page
+web_server--> browser : response html page
 
-All the input/output is coded in the `main.rs`: keyboard and monitor (stdin and stdout), access to files and some access to network.  
-The library must not operate directly with the stdin/stdout, because some other caller of the library can have other ideas around input-output options. Maybe it is a Graphical user interface that does thing completely different than CLI applications.
-
-A separate `lib.rs` enables to make good tests and examples without worrying about input-output.
-
-## super simple argument parsing
-
-I use a super simple code to parse CLI arguments inside the `src/bin/webpage_hit_counter/main.rs`. There are crate libraries that enables very complex argument parsing if needed.
-
-## automation_tasks_rs
-
-Building a project is always more complex then just `cargo build` and `cargo run`. There are always some files to copy or some content to copy from file to file. For this I use `cargo-auto` - automation tasks written in Rust language for the build process of Rust projects.
-
-All the source is inside the folder `automation_tasks_rs`. It is pure Rust, it is easy to understand and modify to your needs.
-
-To start using it just type in `VSCode terminal`:
-
-```bash
-cargo auto
+browser -> webpage_hit_counter: get image
+webpage_hit_counter -> database : increment count
+database -> webpage_hit_counter : new hit count
+webpage_hit_counter -> browser : response image with count
+@enduml
 ```
 
-```bash
-User defined tasks in automation_tasks_rs:
-cargo auto build - builds the crate in debug mode, fmt
-cargo auto release - builds the crate in release mode, version from date, fmt, strip
-cargo auto doc - builds the docs, copy to docs directory
-cargo auto commit_and_push - commits with message and push with mandatory message
- if you use SSH, it is easy to start the ssh-agent in the background and ssh-add your credentials for git
-cargo auto publish_to_crates_io - publish to crates.io, git tag
+## Project for tutorial
+
+This is a perfect simple example how to use a Web server and a database in Rust.  
+I choose the crate Actix-web for my web server, because it looks very popular among Rustaceans. I don't know if other Rust web servers are better or worse. I need something really super simple and I don't want to complicate analyzing every existing web-server crate.  
+<https://actix.rs/>  
+I choose PostgreSQL or Postrgres as my preferred database because I have a long history with MSSQL and they look fairly similar. I also heard a lot of good opinions about Postgres.  
+<https://www.postgresql.org/>  
+
+## Postgres in a container
+
+My Rust development environment is a podman pod with 2 containers. I will add to that pod a new container for the Postgres server and one with the pgAdmin management tool.  
+I enhanced the script rust-dev-pod-create-sh from my project docker-rust-development and started the new pod. A new port 9876 will be used for pgAdmin.  
+I will now force the reboot of WSL to demonstrate how to restart the pod. In powershell run as administrator I use "Get-Service LxssManager | Restart-Service".
+After reboot I need a small bash script to restart the pod, because of the peculiarities of WSL.
+<https://github.com/bestia-dev/docker_rust_development>
+
+## pgAdmin create database and tables
+
+Now we can open the pgAdmin management tool inside a browser on the address localhost 9 8 7 6.  
+For this tutorial we will not deep dive into database security. We will use just the admin user role. This is a big no no in production.  
+First create a new database named webpage-hit-counter.  
+The first table will be a list of webpages with their unique integer id.
+
+A table is made of columns and rows or synonimous of fields and records.
+
+The second table will have a foreign key to the webpage table and the number of hits. The serial datatype automatically increases on every insert command and is therefor unique.  
+I forgot to assign the primary key to the tables.
+We will add the foreign key to define the relation between the tables. And we will set the columns to not null.  
+That is all for now about the Postgres database. The data will be inserted from the Rust code.
+
+## Template project with cargo auto new_cli
+
+We will create a template CLI project using "cargo auto new-c-l-i".
+Open VSCode, press F1, remote-ssh connect to host, enter passphrase. In the rustprojects directory create a new template Rust project named webpage-hit-counter. Open it in a new VSCode window.
+Build it with "cargo auto build" and run it. Just to check that everything is ok.  
+Heureka, it works!
+
+## Actix web server
+
+Let begin our discovery of actix-web with a simple Hello World example. Classic getting started stuff!
+<https://actix.rs/docs/getting-started/>  
+I will comment or delete the code I don't need and replace it with the code from the example.
+I use the VSCode extension "crates from Seray Uzgur" to check the last version of the crate and quickly open the documentation.  
+<https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates>  
+
+Let rename the module and copy the code from the example.
+I like to leave some parts of the template code for future use.  
+Functions that are used outside the module must be public.
+Lib-r-s has a big segment of doc-comments. We can fold it quickly with the fold marker.
+We need to rename the module and allow use of all functions from it.
+The main function is copied into the bin main-r-s file.
+Now we copy the use statement. We can delete the unused objects.
+The bin main-r-s is a separate part of the project and we must write a use statement for the library project.
+In the explorer side panel we can see in yellow the modules that have warning and in red the ones with errors. We can clean this problems easily.
+With F1 we got all the VSCode functions under our fingertips. I need to Comment the code. Sometimes typing is faster than using the mouse.
+We can now build the project with cargo auto build.
+In VSCode we have to open the port 8080, so that we can access the container from our browser.
+Run the compiled code without any parameters.
+Now open the browser on localhost port 8080.  
+Hello world! It works. Let's try with another function.
+The routing for Hey calls the functions manual-hello and writes "Hey there!".
+
+## new route
+
+We will now modify the code for our example. We need only one route named get_image. It will call the function with the same name. 
+I like to use Rust raw string, because I can copy paste literal text without modifying it.
+We will return a svg file for the badge. Svg is simple xml text, nothing complicated.
+Let's build the project and open it in the browser.
+We need to add the MIME type so the browser can render the svg instead of showing the text.
+We need a new dependency crate for mime.
+There is need for a few modification to main and the automation tasks. Nothing big.
+We can now build the project and open the URL in the browser.  
+Hooray! We can now see the SVG image for the badge with the word "Hits" and the number 14. Pretty neat!
+
+## data in the database
+
+Now we need to insert some data into the database. I will use the pgAdmin management tool. There is a graphical way to write data, but I will use SQL statements. Sooner or later we need to write SQL statements. And they are not so difficult. The basics is only 4 words: SELECt, UPDATE, INSERT and DELETE.
+In this table the i-d will be a random number. Our first row or record is for testing purposes.
+Into the second table we don't need to define the i-d because it is incremented automatically. The webpage-id must create a relation with the record in the webpage table and for now we choose a sample hit count for example 3.
+
+```sql
+insert into webpage(id, webpage)
+values(555555, 'test')
+
+insert into hit_counter(webpage_id, count)
+values(555555, 3)
 ```
 
-The `bash auto-completion` should work. If you type `cargo auto b` and press `tab` it should auto-complete to `build`. Look at the project <https://github.com/bestia-dev/dev_bestia_cargo_completion>.
+## Postgres and Rust
 
-```bash
-cargo auto build
+We will find an example how to write Rust code to select data from the Postgres database.  
+I choose the asynchronous Tokio client because it matches the Tokio runtime of Actix-web.  
+<https://docs.rs/crate/tokio-postgres/0.7.6>  
+This is a good moment to create a git repository because we will experiment a little bit with the postgres code.
+I use ssh-agent and ssh-add to store my credentials for Github.
+We add the tokio-postgres crate to cargo-toml. We create a new module for postgres and a new function based on the example that read the hit count from the table. We have to add the new module to lib-rs. In the actix module we call the function and print the result to the terminal.
+ok. Build it, open it in the browser. It works. Check the terminal and we see the number 3 that was read from the table. Perfect.
+We want this number to show up in the SVG image. That is simple, because SVG is just an XML text. We will use the new format syntax from Rust edition 2021.
+Works perfectly!
+Time for a git commit and push.
+<https://chamook.lol/rust-web-service/>
+
+## connection pool
+
+Opening a connection to the database every time the server gets a request is not ideal. We need a connection pool to share the same connection for sequential requests efficiently. We can use the deadpool crate.
+
+We will use the rust-dotenv crate to keep database connection and configuration values in a config file with the name dot-env.
+<https://chamook.lol/rust-web-service/>
+
+We add also the dependency crate deadpool-postgres.
+We will make a new module for deadpool to have things neatly separated.  
+First we load the env variables.
+This is a special deadpool-postgres crate and works with postgres configuration objects.
+We add the new module to lib-r-s.
+Now we can call this function from the main function.
+Actix can seamlessly pass objects to functions if we use app-data. In this case we pass the cloned pool object.
+I want to write when the server stops in the terminal.
+We can now add the pool parameter to our request handler and pass it to our database call. 
+We need one client connection from the pool.
+This closure must be "move" now.
+For debugging I want to write to the terminal when the request is executed.
+Build and try. Refresh a few times. In the terminal we can see multiple requests. It works.
+
+## parameter
+
+We will now introduce the parameter webpage-i-d, so we can count hits on many different pages. 
+In pgAdmin insert new records in webpage and in hit-counter. The i-d will be random 6 times 7 and the count 17 for now. We will use the Query tool and write SQL statements.
+
+```sql
+insert into webpage(id, webpage)
+values(777777, 'test2')
+
+insert into hit_counter(webpage_id, count)
+values(777777, 17)
 ```
 
-```bash
-Running automation task: build
-old version: "0.1.18"
-new version: '0.1.19'
-$ cargo fmt
-$ cargo build
-Compiling webpage_hit_counter v0.1.19 (/home/rustdevuser/rustprojects/webpage_hit_counter)
-Finished dev [unoptimized + debuginfo] target(s) in 2.72s
+In this tutorial we will not create a user interface to add webpages. That is reserved for my next tutorial.
 
-After `cargo auto build`, run the compiled binary
-run `./target/debug/webpage_hit_counter print world`
-later
-run `cargo auto release`
-```
+Actix has integrated tools to extract parameters from URL paths. It is easy. Just use the right syntax for the route.
+Accept the new parameter and then pass it to the postgres function.
+Then pass this parameter to the SQL statement in the WHERE clause.
+Build and try with different parameters. The first return 3 hits, the second returns 17 hits. Hooray! It works!
 
-After the task there is a recommendation what to do next.
+## increment
 
-```bash
-cargo auto release
-```
+The final step of the development is to increment the hit counter every time we got the request. We will write another simple SQL statement before selecting the value.
+Build, try, works. Done !
 
-```bash
-Running automation task: release
-old version: "0.1.20"
-new version: '0.1.21'
-new text: '
-**Basic Rust project template for CLI, more than just `cargo new hello`**
-***version: 0.1.21 date: 2022-04-01 author: [bestia.dev](bestia.dev) repository: [Github](https://github.com/bestia-dev/webpage_hit_counter)***'
+## how to use it
 
-include_into_readme_md write file: README.md
-$ cargo fmt
-$ cargo build --release
-Compiling webpage_hit_counter v0.1.21 (/home/rustdevuser/rustprojects/webpage_hit_counter)
-Finished release [optimized] target(s) in 1.05s
+We can create a simple example page how to use our webpage-hit-counter.
+It can be just a single page passive file index-html.  
+The Show preview command for html is added by the Live Preview Extension for VSCode. I use it because the VSCode server is running inside a docker container. 
+Marvelous. I like the graphic part too!
 
-After `cargo auto release`, , run the compiled binary
-run `./target/release/webpage_hit_counter print world`
-later
-run `cargo auto doc`
+## Outro
 
-```
+In this tutorial I will not go into details how to deploy it to my web server. Maybe in another tutorial.
 
-Release is incrementing the version number and date, copying the title and description from Cargo.toml to README.md. Calculates the lines of code in the project and makes badges from it in README.md. Copying the README into doc comments, so the documentation can be compiled later.
+This is all for today.  
+Thank you for watching and see you next time.  
+Feel free to contact me on bestea-dev or github.
 
-```bash
-cargo auto doc
-```
+## Development
 
-```bash
-Running automation task: doc
-$ cargo doc --no-deps --document-private-items
- Documenting webpage_hit_counter v0.1.21 (/home/rustdevuser/rustprojects/webpage_hit_counter)
-Finished dev [unoptimized + debuginfo] target(s) in 0.54s
-$ rsync -a --info=progress2 --delete-after target/doc/ docs/
-2,787,371 100% 46.60MB/s 0:00:00 (xfr#56, to-chk=0/61) 
+My development environment is thoroughly explained in my previous projects with youtube video tutorial:  
+[01. Tutorial to install Linux on Windows. Linux everywhere! (win10_wsl2_debian11) (2022-03)](https://github.com/bestia-dev/win10_wsl2_debian11)  
+[02. Tutorial for Rust development environment inside docker container. Rust: Hack Without Fear ! (docker_rust_development) (2022-03)](https://github.com/bestia-dev/docker_rust_development)  
+[03. Tutorial for coding a simple CLI application in Rust (rust_plantuml_client) (2022-04)](https://github.com/bestia-dev/rust_plantuml_client)  
+[04. Tutorial for Coding simple PWA in Rust (sort_text_international_rust_wasm_pwa) (2022-07)](https://github.com/bestia-dev/sort_text_international_rust_wasm_pwa)
 
-After `cargo auto doc`, check `docs/index.html`. If ok, then 
-run `cargo auto commit_and_push` with mandatory commit message
-```
+This project has also a youtube video tutorial. Watch it:
+<!-- markdownlint-disable MD033 -->
+[<img src="https://github.com/bestia-dev/webpage_hit_counter/raw/main/images/thumbnail.png" width="400px">](https://bestia.dev/youtube/webpage_hit_counter.html)
+<!-- markdownlint-enable MD033 -->
 
-If you Ctrl+Click on the link `docs/index.html` it will open the file in VSCode editor. In the right corner you can click to see the Live Preview. It will open the preview for the html file in an integrated browser in VSCode. Very useful.
-Now is a good time to run all the test before committing.
+Use `cargo-auto` to automate development tasks: `cargo install cargo-auto`.  
+Then inside the Rust project folder run `cargo auto` for the instructions.  
 
-```bash
-cargo test
-```
-
-If we are happy with the changes, we commit and push:
-
-```bash
-cargo auto commit_and_push "my message for commit"
-```
-
-```bash
-Running automation task: commit_and_push
-$ git add -A && git commit -m "readme"
-[main 3bdcc91] readme
- 9 files changed, 443 insertions(+), 89 deletions(-)
-$ git push
-Enumerating objects: 36, done.
-Counting objects: 100% (36/36), done.
-Delta compression using up to 6 threads
-Compressing objects: 100% (16/16), done.
-Writing objects: 100% (19/19), 6.27 KiB | 1.25 MiB/s, done.
-Total 19 (delta 11), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (11/11), completed with 10 local objects.
-To https://github.com/bestia-dev/webpage_hit_counter.git
- d0f31d3..3bdcc91 main -> main
-
-After `cargo auto commit and push`
-run `cargo auto publish_to_crates_io`
-```
-
-And finally if you want to publish it on crates.io. First you need the `access token` you get from crates.io.
-
-```bash
-cargo login
-# type the access token
-cargo auto publish_to_crates_io
-```
-
-## lib.rs doc-comments
-
-The entire README.md is copied into lib.rs. This can be annoying to watch. You can collapse the entire section clicking on `// region: auto_md_to_doc_comments include README.md`.
-
-You can use `// region:` and `// endregion:` to mark sections you want to collapse in the editor.
-
-From this doc-comments the `docs` will be created. Take a look and try to write what other users would want to read in the `docs`.
-
-## Modules
-
-I added one module `hello_mod.rs` just to showcase how modules are used in separate files.
-
-## Markdown
-
-README.md and all the doc-comments are in markdown. To separate paragraphs in markdown use an empty line between them.
-I tried other variants like double-space or backslash, but an empty line is the most used in the wild.
-
-## tests
-
-I added a unit-test, just to show how it looks. And an integration-test. So it is "ready-to-go".
-Run them with `cargo test`.
-
-## examples
-
-In the directory `examples` every rs file is a bin-executable.
-Run it with:
-
-```bash
-cargo run --example example_1
-```
-
-## Error handling thiserror and anyhow
-
-The rule number one is never use `.unwrap()` in your real Rust code. It is a sign, you are not Error handling properly.
-Maybe `unwrap()` can be fine for some fast learning examples, but for any real-life Rust code you must use some `Error handling`. There are many different ways to do that in Rust. I choose the pair of libraries `thiserror` and `anyhow`. The first is made for libraries, the second is made for bin-executables.  
-The library needs an Enum with all the possible errors that this library can return. With `#[derive(Error)]` this enum get everything needed to be a true Rust error struct. Every error can have a formatting string and a struct of data.  
-The bin-executable does not want to be involved in every possible error separately. It needs an umbrella for all possible errors with `anyhow::Result`.  
-Inside the code, mostly propagate the errors with the `?` Operator after the `Result` value instead of unwrap() or the match expression.
-In the tests we don't want to work with Error handling. There, instead of `.unwrap()`, use the similar function `.expect(&str)` that has an additional description string.
+Inside VSCode add the port 4000 for forwarding out of the docker container.
+Open the browser in Win10 on:  
+<http://127.0.0.1:4000/webpage_hit_counter/>  
 
 ## cargo crev reviews and advisory
 
-We live in times of danger with [supply chain attacks](https://en.wikipedia.org/wiki/Supply_chain_attack).
+We live in times of danger with [supply chain attacks](https://en.wikipedia.org/wiki/Supply_chain_attack).  
+It is recommended to always use [cargo-crev](https://github.com/crev-dev/cargo-crev)  
+to verify the trustworthiness of each of your dependencies.  
+Please, spread this info.  
+You can also read reviews quickly on the web:  
+<https://web.crev.dev/rust-reviews/crates/>  
 
-It is recommended to always use [cargo-crev](https://github.com/crev-dev/cargo-crev) to verify the trustworthiness of each of your dependencies.
+## open-source free and free as a beer
 
-Please, spread this info.
-
-You can also read crev reviews quickly on the web:
-
-<https://web.crev.dev/rust-reviews/crates/>
-
-## open-source and free as a beer
-
-My open-source projects are free as a beer (MIT license).
-
-I just love programming.
-
-But I need also to drink. If you find my projects and tutorials helpful,please buy me a beer donating on my [paypal](https://paypal.me/LucianoBestia).
-
-You know the price of a beer in your local bar ;-) So I can drink a free beer for your health :-)
-
+My open-source projects are free as a beer (MIT license).  
+I just love programming.  
+But I need also to drink. If you find my projects and tutorials helpful,  
+please buy me a beer donating on my [paypal](https://paypal.me/LucianoBestia).  
+You know the price of a beer in your local bar ;-)  
+So I can drink a free beer for your health :-)  
 [Na zdravje!](https://translate.google.com/?hl=en&sl=sl&tl=en&text=Na%20zdravje&op=translate) [Alla salute!](https://dictionary.cambridge.org/dictionary/italian-english/alla-salute) [Prost!](https://dictionary.cambridge.org/dictionary/german-english/prost) [Nazdravlje!](https://matadornetwork.com/nights/how-to-say-cheers-in-50-languages/) 🍻
 
 [comment]: # (auto_md_to_doc_comments segment end A)

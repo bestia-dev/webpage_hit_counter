@@ -6,6 +6,13 @@ pub async fn select_count(
 ) -> Result<i32, tokio_postgres::Error> {
     let client: deadpool_postgres::Client = db_pool.get().await.unwrap();
 
+    client
+        .query(
+            "update hit_counter set count=count+1 where webpage_id = $1",
+            &[&webpage_id],
+        )
+        .await?;
+
     // Now we can execute a simple statement that just returns its parameter.
     let rows = client
         .query(
