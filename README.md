@@ -36,7 +36,7 @@ I am using the Rust development environment inside a docker container we created
 This project has also a youtube video tutorial. Watch it:
 <!-- markdownlint-disable MD033 -->
 [<img src="https://bestia.dev/youtube/webpage_hit_counter.png" width="400px">](https://bestia.dev/youtube/webpage_hit_counter.html)
-<!-- markdownlint-enable MD033 -->>
+<!-- markdownlint-enable MD033 -->
 
 ## webpage hit counter
 
