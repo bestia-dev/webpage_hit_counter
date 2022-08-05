@@ -32,7 +32,6 @@ I just love  programming !
 This is my fifth video tutorial about programming in Rust.  
 In this tutorial I will show step by step how to create a simple web server with a database.  
 I am using the Rust development environment inside a docker container we created in the first two video tutorials. You can find them in my youtube channel :"bestia dev Tutorials for Rust programming language". Just type "bestia dev" in the youtube search box.  
-<https://www.youtube.com/watch?v=ZgziGt1P9hA&list=PLbXDHfG-c3U8pkyN1D7SwF3ItA3uTyoWW>  
 This project has also a youtube video tutorial. Watch it:
 <!-- markdownlint-disable MD033 -->
 [<img src="https://bestia.dev/youtube/webpage_hit_counter.png" width="400px">](https://bestia.dev/youtube/webpage_hit_counter.html)
