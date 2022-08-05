@@ -20,7 +20,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/blob/main/LICENSE) [![Rust](https://github.com/bestia-dev/webpage_hit_counter/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 
-Hashtags: #rustlang #tutorial #pwa  
+Hashtags: #rustlang #tutorial #pwa #webserver #actix #database #postgres 
 My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
 
 ## Intro
