@@ -6,9 +6,18 @@
 
 use actix_web::{http::header, HttpResponse, Responder};
 
-pub async fn get_image(db_pool: actix_web::web::Data<deadpool_postgres::Pool>) -> impl Responder {
-    println!("get_image");
-    let hit_count = crate::postgres_mod::select_count(db_pool).await.unwrap();
+/// extract path info from "/get_image/{webpage_id}" url
+/// {webpage_id} - deserializes to a i32
+pub async fn get_image(
+    db_pool: actix_web::web::Data<deadpool_postgres::Pool>,
+    path: actix_web::web::Path<i32>,
+) -> impl Responder {
+    let webpage_id = path.into_inner();
+
+    println!("get_image {webpage_id}");
+    let hit_count = crate::postgres_mod::select_count(db_pool, webpage_id)
+        .await
+        .unwrap();
 
     HttpResponse::Ok()
     .append_header(header::ContentType(mime::IMAGE_SVG))

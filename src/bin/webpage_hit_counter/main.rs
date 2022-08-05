@@ -21,7 +21,7 @@ async fn main() -> std::io::Result<()> {
     let http_server_result = HttpServer::new(move || {
         App::new()
             .app_data(web::Data::new(pool.clone()))
-            .route("/get_image", web::get().to(get_image))
+            .route("/get_image/{webpage_id}", web::get().to(get_image))
     })
     .bind(("127.0.0.1", 8080))?
     .run()
