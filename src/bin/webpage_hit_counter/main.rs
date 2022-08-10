@@ -23,7 +23,7 @@ async fn main() -> std::io::Result<()> {
             .app_data(web::Data::new(pool.clone()))
             .route("/get_image/{webpage_id}", web::get().to(get_image))
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind(("127.0.0.1", 8011))?
     .run()
     .await;
 

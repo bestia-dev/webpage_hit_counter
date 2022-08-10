@@ -5,7 +5,7 @@
 [comment]: # (auto_cargo_toml_to_md start)
 
 **05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)**  
-***version: 1.0.45 date: 2022-08-09 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/webpage_hit_counter)***  
+***version: 1.0.46 date: 2022-08-10 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/webpage_hit_counter)***  
 
 [comment]: # (auto_cargo_toml_to_md end)
 
@@ -112,9 +112,9 @@ The bin main.rs is a separate part of the project and we must write a use statem
 In the explorer side panel we can see in yellow the modules that have warning and in red the ones with errors. We can clean this problems easily.
 With F1 we got all the VSCode functions under our fingertips. I need to Comment the code. Sometimes typing is faster than using the mouse.
 We can now build the project with cargo auto build.
-In VSCode we have to open the port 8080, so that we can access the container from our browser.
+In VSCode we have to open the port 8011, so that we can access the container from our browser.
 Run the compiled code without any parameters.
-Now open the browser on localhost port 8080.  
+Now open the browser on localhost port 8011.  
 Hello world! It works. Let's try with another function.
 The routing for Hey calls the functions manual_hello and writes "Hey there!".
 
