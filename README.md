@@ -20,7 +20,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/blob/main/LICENSE) [![Rust](https://github.com/bestia-dev/webpage_hit_counter/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 
-Hashtags: #rustlang #tutorial #pwa  
+Hashtags: #rustlang #tutorial #pwa #webserver #actix #database #postgres 
 My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
 
 ## Intro
@@ -32,7 +32,10 @@ I just love  programming !
 This is my fifth video tutorial about programming in Rust.  
 In this tutorial I will show step by step how to create a simple web server with a database.  
 I am using the Rust development environment inside a docker container we created in the first two video tutorials. You can find them in my youtube channel :"bestia dev Tutorials for Rust programming language". Just type "bestia dev" in the youtube search box.  
-<https://www.youtube.com/watch?v=ZgziGt1P9hA&list=PLbXDHfG-c3U8pkyN1D7SwF3ItA3uTyoWW>
+This project has also a youtube video tutorial. Watch it:
+<!-- markdownlint-disable MD033 -->
+[<img src="https://bestia.dev/youtube/webpage_hit_counter.png" width="400px">](https://bestia.dev/youtube/webpage_hit_counter.html)
+<!-- markdownlint-enable MD033 -->
 
 ## webpage hit counter
 
@@ -215,26 +218,6 @@ In this tutorial I will not go into details how to deploy it to my web server. M
 This is all for today.  
 Thank you for watching and see you next time.  
 Feel free to contact me on bestia.dev or github.
-
-## Development
-
-My development environment is thoroughly explained in my previous projects with youtube video tutorial:  
-[01. Tutorial to install Linux on Windows. Linux everywhere! (win10_wsl2_debian11) (2022-03)](https://github.com/bestia-dev/win10_wsl2_debian11)  
-[02. Tutorial for Rust development environment inside docker container. Rust: Hack Without Fear ! (docker_rust_development) (2022-03)](https://github.com/bestia-dev/docker_rust_development)  
-[03. Tutorial for coding a simple CLI application in Rust (rust_plantuml_client) (2022-04)](https://github.com/bestia-dev/rust_plantuml_client)  
-[04. Tutorial for Coding simple PWA in Rust (sort_text_international_rust_wasm_pwa) (2022-07)](https://github.com/bestia-dev/sort_text_international_rust_wasm_pwa)
-
-This project has also a youtube video tutorial. Watch it:
-<!-- markdownlint-disable MD033 -->
-[<img src="https://github.com/bestia-dev/webpage_hit_counter/raw/main/images/thumbnail.png" width="400px">](https://bestia.dev/youtube/webpage_hit_counter.html)
-<!-- markdownlint-enable MD033 -->
-
-Use `cargo-auto` to automate development tasks: `cargo install cargo-auto`.  
-Then inside the Rust project folder run `cargo auto` for the instructions.  
-
-Inside VSCode add the port 4000 for forwarding out of the docker container.
-Open the browser in Win10 on:  
-<http://127.0.0.1:4000/webpage_hit_counter/>  
 
 ## cargo crev reviews and advisory
 
