@@ -14,7 +14,9 @@ use webpage_hit_counter::*;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    println!("Actix web server started!");
+    println!("Actix web server started on localhost:8011!");
+    println!("test it with curl or browser:");
+    println!("http://localhost:8011/webpage_hit_counter/get_svg_image/555555");
 
     let pool = deadpool_postgres_start().await;
 

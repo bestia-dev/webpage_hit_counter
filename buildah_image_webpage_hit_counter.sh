@@ -66,19 +66,12 @@ echo " "
 echo "\033[0;33m    Finally save/commit the image named webpage_hit_counter_img \033[0m"
 buildah commit webpage_hit_counter_img bestiadev/webpage_hit_counter_img:2022-08-09
 
-
-TODO: GLIBC problem: on my development 2.33, on debian 11 2.31
-Because of psql client. Put it in a container.
-
-
-
-
 echo " "
 echo "\033[0;33m    Copy the image to the web server. \033[0m"
 
 echo " "
 echo "\033[0;33m    To create the container 'webpage_hit_counter_cnt' use: \033[0m"
-echo "\033[0;33m podman create -ti --name webpage_hit_counter_cnt docker.io/bestiadev/webpage_hit_counter_img:latest \033[0m"
+echo "\033[0;33m podman create -ti -p 8011:8011 --name webpage_hit_counter_cnt webpage_hit_counter_img bash \033[0m"
 echo "\033[0;33m podman restart webpage_hit_counter_cnt \033[0m"
 echo "\033[0;33m podman exec -it webpage_hit_counter_cnt bash \033[0m"
 
