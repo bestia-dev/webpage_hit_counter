@@ -128,6 +128,8 @@ fn task_build() {
         r#"{YELLOW}
     After `cargo auto build`, run the compiled binary, examples and/or tests
 ./target/debug/{package_name}
+    In the browser or in curl open 
+http://localhost:8011/webpage_hit_counter/get_svg_image/555555
     if ok, then
 cargo auto release
 {RESET}"#,
@@ -150,6 +152,8 @@ fn task_release() {
         r#"{YELLOW}
     After `cargo auto release`, run the compiled binary, examples and/or tests
 ./target/release/{package_name}
+    In the browser or in curl open 
+http://localhost:8011/webpage_hit_counter/get_svg_image/555555
     if ok, then
 cargo auto doc
 {RESET}"#,

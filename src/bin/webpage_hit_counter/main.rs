@@ -19,9 +19,10 @@ async fn main() -> std::io::Result<()> {
     let pool = deadpool_postgres_start().await;
 
     let http_server_result = HttpServer::new(move || {
-        App::new()
-            .app_data(web::Data::new(pool.clone()))
-            .route("/get_image/{webpage_id}", web::get().to(get_image))
+        App::new().app_data(web::Data::new(pool.clone())).route(
+            "/webpage_hit_counter/get_svg_image/{webpage_id}",
+            web::get().to(get_svg_image),
+        )
     })
     .bind(("127.0.0.1", 8011))?
     .run()

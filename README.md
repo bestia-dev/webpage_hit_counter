@@ -5,12 +5,12 @@
 [comment]: # (auto_cargo_toml_to_md start)
 
 **05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)**  
-***version: 1.0.46 date: 2022-08-10 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/webpage_hit_counter)***  
+***version: 1.0.49 date: 2022-08-10 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/webpage_hit_counter)***  
 
 [comment]: # (auto_cargo_toml_to_md end)
 
 [comment]: # (auto_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-146-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-147-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-231-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-27-purple.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-19-yellow.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
@@ -120,7 +120,7 @@ The routing for Hey calls the functions manual_hello and writes "Hey there!".
 
 ## new route
 
-We will now modify the code for our example. We need only one route named get_image. It will call the function with the same name.  
+We will now modify the code for our example. We need only one route named webpage_hit_counter/get_svg_image. It will call the function with the same name.  
 I like to use Rust raw string, because I can copy paste literal text without modifying it.
 We will return a svg file for the badge. Svg is simple xml text, nothing complicated.
 Let's build the project and open it in the browser.
