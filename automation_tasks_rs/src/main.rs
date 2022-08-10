@@ -145,6 +145,7 @@ fn task_release() {
 
     run_shell_command("cargo fmt");
     run_shell_command("cargo build --release");
+    run_shell_command("strip target/release/webpage_hit_counter");
     println!(
         r#"{YELLOW}
     After `cargo auto release`, run the compiled binary, examples and/or tests
