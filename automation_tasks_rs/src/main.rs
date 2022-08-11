@@ -47,11 +47,9 @@ fn match_arguments_and_call_tasks(mut args: std::env::Args) {
                     task_test();
                 } else if &task == "commit_and_push" {
                     let arg_2 = args.next();
-                    task_commit_and_push(arg_2);
-                /*
-                } else if &task == "publish_to_crates_io" {
-                    task_publish_to_crates_io();
-                */
+                    task_commit_and_push(arg_2);                
+                } else if &task == "publish_to_web" {
+                    task_publish_to_web();                
                 } else {
                     println!("{RED}Error: Task {task} is unknown.{RESET}");
                     print_help();
@@ -75,12 +73,9 @@ cargo auto doc - builds the docs, copy to docs directory
 cargo auto test - runs all the tests
 cargo auto commit_and_push "message" - commits with message and push with mandatory message
     (If you use SSH, it is easy to start the ssh-agent in the background and ssh-add your credentials for git.)
+cargo auto publish_to_web - publish to my google VM, git tag
+    (You need credentials for publishing. I use ssh-agent and ssh-add to store my credentials for SSH.)
 "#
-/*
-cargo auto publish_to_crates_io - publish to crates.io, git tag
-    (You need credentials for publishing. On crates.io get the 'access token'. Then save it locally once and forever with the command 
-    ` cargo login TOKEN` use a space before the command to avoid saving the secret token in bash history.)
-*/
     );
     print_examples_cmd();
 }
@@ -101,8 +96,7 @@ fn completion() {
     let last_word = args[3].as_str();
 
     if last_word == "cargo-auto" || last_word == "auto" {
-        let sub_commands = vec!["build", "release", "doc", "test", "commit_and_push",];
-        // , "publish_to_crates_io"
+        let sub_commands = vec!["build", "release", "doc", "test", "commit_and_push", "publish_to_web"];
         completion_return_one_or_more_sub_commands(sub_commands, word_being_completed);
     }
     /*
@@ -129,7 +123,7 @@ fn task_build() {
     After `cargo auto build`, run the compiled binary, examples and/or tests
 ./target/debug/{package_name}
     In the browser or in curl open 
-http://localhost:8011/webpage_hit_counter/get_svg_image/555555
+http://localhost:8080/webpage_hit_counter/get_svg_image/555555
     if ok, then
 cargo auto release
 {RESET}"#,
@@ -153,7 +147,7 @@ fn task_release() {
     After `cargo auto release`, run the compiled binary, examples and/or tests
 ./target/release/{package_name}
     In the browser or in curl open 
-http://localhost:8011/webpage_hit_counter/get_svg_image/555555
+http://localhost:8080/webpage_hit_counter/get_svg_image/555555
     if ok, then
 cargo auto doc
 {RESET}"#,
@@ -210,17 +204,16 @@ fn task_commit_and_push(arg_2: Option<String>) {
             println!(
                 r#"{YELLOW}
     After `cargo auto commit_and_push "message"`
-cargo auto publish_to_crates_io
+cargo auto publish_to_web
 {RESET}"#
             );
         }
     }
 }
 
-/*
-/// publish to crates.io and git tag
-fn task_publish_to_crates_io() {
-    println!(r#"{YELLOW}The crates.io access token must already be saved locally with `cargo login TOKEN`{RESET}"#);
+/// publish to web for podman container and git tag
+fn task_publish_to_web() {
+    println!(r#"{YELLOW}Use ssh-agent and ssh-add to store the credentials.{RESET}"#);
 
     let cargo_toml = CargoToml::read();
     // git tag
@@ -230,19 +223,20 @@ fn task_publish_to_crates_io() {
     );
     run_shell_command(&shell_command);
 
-    // cargo publish
-    run_shell_command("cargo publish");
+    // rsync files
+    run_shell_command("rsync -e ssh -a --info=progress2 ./target/release/webpage_hit_counter luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
+    run_shell_command("rsync -e ssh -a --info=progress2 ./.env luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
+    run_shell_command("rsync -e ssh -a --info=progress2 ./buildah_image_webpage_hit_counter.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
+    run_shell_command("rsync -e ssh -a --info=progress2 ./webpage_hit_counter_pod_create.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
+
     println!(
         r#"{YELLOW}
-    After `cargo auto publish_to_crates_io`, 
-    check `https://crates.io/crates/{package_name}`.
-    Install the crate with `cargo install {package_name}` and check how it works.
-    Add the dependency `{package_name} = "{package_version}"` to your Rust project and check how it works.
-{RESET}"#,
-        package_name = cargo_toml.package_name(),
-        package_version = cargo_toml.package_version()
+    After `cargo auto publish_to_web`, 
+    connect to the google VM bash using SSH.
+    There run the bash scripts to create the image and to create the pod.
+{RESET}"#
     );
 }
-*/
+
 
 // endregion: tasks

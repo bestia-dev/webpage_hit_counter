@@ -67,24 +67,10 @@ echo "\033[0;33m    Finally save/commit the image named webpage_hit_counter_img 
 buildah commit webpage_hit_counter_img bestiadev/webpage_hit_counter_img:2022-08-09
 
 echo " "
-echo "\033[0;33m    Copy the image to the web server. \033[0m"
+echo "\033[0;33m    Export it as file webpage_hit_counter_img.tar \033[0m"
+podman save -o ./webpage_hit_counter_img.tar webpage_hit_counter_img
 
 echo " "
-echo "\033[0;33m    To create the container 'webpage_hit_counter_cnt' use: \033[0m"
-echo "\033[0;33m podman create -ti -p 8011:8011 --name webpage_hit_counter_cnt webpage_hit_counter_img bash \033[0m"
-echo "\033[0;33m podman restart webpage_hit_counter_cnt \033[0m"
-echo "\033[0;33m podman exec -it webpage_hit_counter_cnt bash \033[0m"
-
-echo " "
-echo "\033[0;33m    Try to build and run a sample Rust project: \033[0m"
-echo "\033[0;33m cargo new rust_dev_hello \033[0m"
-echo "\033[0;33m cd rust_dev_hello \033[0m"
-echo "\033[0;33m cargo run \033[0m"
-
-echo " "
-echo "\033[0;33m    Detach container (it will remain 'started') with: \033[0m"
-echo "\033[0;33m Ctrl+P, Ctrl+Q \033[0m"
-
-echo " "
-echo "\033[0;33m    To Exit/Stop the container type: \033[0m"
-echo "\033[0;33m exit \033[0m"
+echo "\033[0;33m    Copy the image to the Rust development container. \033[0m"
+echo "\033[0;33m    Just drag and drop the tar file into VSCode explorer. It will upload the file into the container. \033[0m"
+echo "\033[0;33m    Then you continue the work inside the Rust development container and VSCode. \033[0m"

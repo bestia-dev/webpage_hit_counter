@@ -14,11 +14,14 @@ use webpage_hit_counter::*;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    println!("Actix web server started on localhost:8011!");
+    println!("Actix web server started on localhost:8080!");
     println!("test it with curl or browser:");
-    println!("http://localhost:8011/webpage_hit_counter/get_svg_image/555555");
+    println!("http://localhost:8080/webpage_hit_counter/get_svg_image/555555");
 
     let pool = deadpool_postgres_start().await;
+    // Check the connection to postgres database and panic if error
+    let client: deadpool_postgres::Client = pool.get().await.unwrap();
+    drop(client);
 
     println!("start server");
     let http_server_result = HttpServer::new(move || {
@@ -27,7 +30,7 @@ async fn main() -> std::io::Result<()> {
             web::get().to(get_svg_image),
         )
     })
-    .bind(("0.0.0.0", 8011))?
+    .bind(("0.0.0.0", 8080))?
     .run()
     .await;
 

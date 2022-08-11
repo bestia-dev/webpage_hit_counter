@@ -3,6 +3,7 @@
         "actix",
         "Alla",
         "bestia",
+        "buildah",
         "crev",
         "DBNAME",
         "deadpool",

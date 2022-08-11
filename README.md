@@ -5,14 +5,14 @@
 [comment]: # (auto_cargo_toml_to_md start)
 
 **05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)**  
-***version: 1.0.51 date: 2022-08-10 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/webpage_hit_counter)***  
+***version: 1.0.53 date: 2022-08-10 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/webpage_hit_counter)***  
 
 [comment]: # (auto_cargo_toml_to_md end)
 
 [comment]: # (auto_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-154-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-156-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-231-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
-[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-27-purple.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-28-purple.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-19-yellow.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-19-orange.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 
@@ -112,9 +112,9 @@ The bin main.rs is a separate part of the project and we must write a use statem
 In the explorer side panel we can see in yellow the modules that have warning and in red the ones with errors. We can clean this problems easily.
 With F1 we got all the VSCode functions under our fingertips. I need to Comment the code. Sometimes typing is faster than using the mouse.
 We can now build the project with cargo auto build.
-In VSCode we have to open the port 8011, so that we can access the container from our browser.
+In VSCode we have to open the port 8080, so that we can access the container from our browser.
 Run the compiled code without any parameters.
-Now open the browser on localhost port 8011.  
+Now open the browser on localhost port 8080.  
 Hello world! It works. Let's try with another function.
 The routing for Hey calls the functions manual_hello and writes "Hey there!".
 
