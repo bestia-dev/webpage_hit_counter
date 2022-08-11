@@ -14,8 +14,19 @@ echo "\033[0;33m sh buildah_image.sh \033[0m"
 # Start of script actions:
 
 echo " "
+echo "\033[0;33m    Removing container and image if exists \033[0m"
+# Be careful, this container is not meant to have persistent data.
+# the '|| :' in combination with 'set -e' means that 
+# the error is ignored if the container does not exist.
+set -e
+podman rm webpage_hit_counter_cnt || :
+buildah rm webpage_hit_counter_img || :
+buildah rmi -f webpage_hit_counter_img || :
+
+echo " "
 echo "\033[0;33m    Create new 'buildah container' named webpage_hit_counter_img \033[0m"
 set -o errexit
+
 buildah from --name webpage_hit_counter_img docker.io/library/debian:bullseye-slim
 
 buildah config \
@@ -53,7 +64,8 @@ buildah run webpage_hit_counter_img /bin/sh -c 'echo "set bell-style none" >> ~/
 
 echo " "
 echo "\033[0;33m    Copy the binary and make it executable. The owner is rustdevuser (1000)  \033[0m"
-buildah copy --chown 1000:1000 --chmod 755 webpage_hit_counter_img './webpage_hit_counter' '/home/rustdevuser/rustprojects/webpage_hit_counter'
+buildah copy --chown 1000:1000 webpage_hit_counter_img './webpage_hit_counter' '/home/rustdevuser/rustprojects/webpage_hit_counter'
+buildah run webpage_hit_counter_img /bin/sh -c 'chmod 755 /home/rustdevuser/rustprojects/webpage_hit_counter'
 buildah run webpage_hit_counter_img /bin/sh -c 'ls -la /home/rustdevuser/rustprojects/webpage_hit_counter'
 buildah copy --chown 1000:1000 webpage_hit_counter_img './.env' '/home/rustdevuser/rustprojects/webpage_hit_counter'
 
@@ -64,13 +76,8 @@ buildah run --user root webpage_hit_counter_img    apt -y clean
 
 echo " "
 echo "\033[0;33m    Finally save/commit the image named webpage_hit_counter_img \033[0m"
-buildah commit webpage_hit_counter_img bestiadev/webpage_hit_counter_img:2022-08-09
+buildah commit webpage_hit_counter_img webpage_hit_counter_img:2022-08-09
 
 echo " "
-echo "\033[0;33m    Export it as file webpage_hit_counter_img.tar \033[0m"
-podman save -o ./webpage_hit_counter_img.tar webpage_hit_counter_img
-
-echo " "
-echo "\033[0;33m    Copy the image to the Rust development container. \033[0m"
-echo "\033[0;33m    Just drag and drop the tar file into VSCode explorer. It will upload the file into the container. \033[0m"
-echo "\033[0;33m    Then you continue the work inside the Rust development container and VSCode. \033[0m"
+echo "\033[0;33m    This image will be used in a pod with postgres. \033[0m"
+echo "\033[0;33m    run the bash script 'sh webpage_hit_counter_pod_create.sh' \033[0m"

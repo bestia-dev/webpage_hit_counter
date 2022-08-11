@@ -233,7 +233,17 @@ fn task_publish_to_web() {
         r#"{YELLOW}
     After `cargo auto publish_to_web`, 
     connect to the google VM bash using SSH.
+ssh -i ~/.ssh/ssh_certificate username@domain -v
     There run the bash scripts to create the image and to create the pod.
+cd /var/www/transfer_folder/webpage_hit_counter
+sh buildah_image_webpage_hit_counter.sh
+sh webpage_hit_counter_pod_create.sh
+    Test the postgres server:
+psql -h localhost -p 5432 -U admin -W
+    Test the web application locally:
+curl http://localhost:8011/webpage_hit_counter/get_svg_image/555555    
+    Test the web application on the internet:
+curl https://bestia.dev/webpage_hit_counter/get_svg_image/555555
 {RESET}"#
     );
 }
