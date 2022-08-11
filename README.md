@@ -219,6 +219,10 @@ This is all for today.
 Thank you for watching and see you next time.  
 Feel free to contact me on bestia.dev or github.
 
+## deploying_rust_server_and_database
+
+Read and watch the next tutorial deploying_rust_server_and_database.
+
 ## cargo crev reviews and advisory
 
 We live in times of danger with [supply chain attacks](https://en.wikipedia.org/wiki/Supply_chain_attack).  

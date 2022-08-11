@@ -79,5 +79,5 @@ echo "\033[0;33m    Finally save/commit the image named webpage_hit_counter_img 
 buildah commit webpage_hit_counter_img webpage_hit_counter_img:2022-08-09
 
 echo " "
-echo "\033[0;33m    This image will be used in a pod with postgres. \033[0m"
+echo "\033[0;33m    This image will be used in the pod webpage_hit_counter_pod with postgres. \033[0m"
 echo "\033[0;33m    run the bash script 'sh webpage_hit_counter_pod_create.sh' \033[0m"

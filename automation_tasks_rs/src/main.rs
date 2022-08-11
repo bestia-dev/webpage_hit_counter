@@ -226,8 +226,8 @@ fn task_publish_to_web() {
     // rsync files
     run_shell_command("rsync -e ssh -a --info=progress2 ./target/release/webpage_hit_counter luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
     run_shell_command("rsync -e ssh -a --info=progress2 ./.env luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
-    run_shell_command("rsync -e ssh -a --info=progress2 ./buildah_image_webpage_hit_counter.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
-    run_shell_command("rsync -e ssh -a --info=progress2 ./webpage_hit_counter_pod_create.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
+    run_shell_command("rsync -e ssh -a --info=progress2 ./deploy/buildah_image_webpage_hit_counter.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
+    run_shell_command("rsync -e ssh -a --info=progress2 ./deploy/webpage_hit_counter_pod_create.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
 
     println!(
         r#"{YELLOW}
