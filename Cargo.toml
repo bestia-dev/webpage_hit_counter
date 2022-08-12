@@ -1,6 +1,6 @@
 [package]
 name = "webpage_hit_counter"
-version = "1.0.54"
+version = "1.0.55"
 description = "05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)"
 authors = ["bestia.dev"]
 homepage = "https://bestia.dev"
