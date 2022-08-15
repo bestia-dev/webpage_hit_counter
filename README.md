@@ -18,7 +18,7 @@
 
 [comment]: # (auto_lines_of_code end)
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/blob/main/LICENSE) [![Rust](https://github.com/bestia-dev/webpage_hit_counter/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/webpage_hit_counter/) ![Hits](https://bestia.dev/webpage_hit_counter/get_svg_image/261590595)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/blob/main/LICENSE) [![Rust](https://github.com/bestia-dev/webpage_hit_counter/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/webpage_hit_counter/) ![Hits](https://bestia.dev/webpage_hit_counter/get_svg_image/261590595.svg)
 
 Hashtags: #rustlang #tutorial #pwa #webserver #actix #database #postgres
 My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
