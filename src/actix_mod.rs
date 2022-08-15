@@ -4,23 +4,30 @@
 //!
 //! This doc-comments will be compiled into the `docs`.
 
-use actix_web::{http::header, HttpResponse, Responder};
-
-/// extract path info from "/webpage_hit_counter/get_svg_image/{webpage_id}" url
+/// extract path info from "/webpage_hit_counter/get_svg_image/{webpage_id}.svg" url
 /// {webpage_id} - deserializes to a i32
 pub async fn get_svg_image(
     db_pool: actix_web::web::Data<deadpool_postgres::Pool>,
     path: actix_web::web::Path<i32>,
-) -> impl Responder {
+) -> impl actix_web::Responder {
     let webpage_id = path.into_inner();
 
-    println!("webpage_hit_counter/get_svg_image {webpage_id}");
+    println!("webpage_hit_counter/get_svg_image/{webpage_id}.svg");
     let hit_count = crate::postgres_mod::select_count(db_pool, webpage_id)
         .await
         .unwrap();
 
-    HttpResponse::Ok()
-    .append_header(header::ContentType(mime::IMAGE_SVG))
+    actix_web::HttpResponse::Ok()
+    .append_header(actix_web::http::header::ContentType(mime::IMAGE_SVG))
+    .append_header(actix_web::http::header::CacheControl(vec![
+      actix_web::http::header::CacheDirective::NoCache,
+      actix_web::http::header::CacheDirective::MaxAge(0u32),
+      actix_web::http::header::CacheDirective::NoStore,
+      actix_web::http::header::CacheDirective::SMaxAge(0u32),
+      actix_web::http::header::CacheDirective::ProxyRevalidate,
+    ]))
+    .append_header(("Pragma", "no-cache"))
+    .append_header(("Expires","-1"))
     .body(format!(r##"
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 width="82" height="20">

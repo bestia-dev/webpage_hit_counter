@@ -16,7 +16,7 @@ use webpage_hit_counter::*;
 async fn main() -> std::io::Result<()> {
     println!("Actix web server started on localhost:8080!");
     println!("test it with curl or browser:");
-    println!("http://localhost:8080/webpage_hit_counter/get_svg_image/555555");
+    println!("http://localhost:8080/webpage_hit_counter/get_svg_image/555555.svg");
 
     let pool = deadpool_postgres_start().await;
     // Check the connection to postgres database and panic if error
@@ -26,7 +26,7 @@ async fn main() -> std::io::Result<()> {
     println!("start server");
     let http_server_result = HttpServer::new(move || {
         App::new().app_data(web::Data::new(pool.clone())).route(
-            "/webpage_hit_counter/get_svg_image/{webpage_id}",
+            "/webpage_hit_counter/get_svg_image/{webpage_id}.svg",
             web::get().to(get_svg_image),
         )
     })
