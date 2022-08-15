@@ -123,7 +123,7 @@ fn task_build() {
     After `cargo auto build`, run the compiled binary, examples and/or tests
 ./target/debug/{package_name}
     In the browser or in curl open 
-http://localhost:8080/webpage_hit_counter/get_svg_image/555555
+http://localhost:8080/webpage_hit_counter/get_svg_image/555555.svg
     if ok, then
 cargo auto release
 {RESET}"#,
@@ -147,7 +147,7 @@ fn task_release() {
     After `cargo auto release`, run the compiled binary, examples and/or tests
 ./target/release/{package_name}
     In the browser or in curl open 
-http://localhost:8080/webpage_hit_counter/get_svg_image/555555
+http://localhost:8080/webpage_hit_counter/get_svg_image/555555.svg
     if ok, then
 cargo auto doc
 {RESET}"#,
@@ -241,9 +241,9 @@ sh webpage_hit_counter_pod_create.sh
     Test the postgres server:
 psql -h localhost -p 5432 -U admin -W
     Test the web application locally:
-curl http://localhost:8011/webpage_hit_counter/get_svg_image/555555    
+curl http://localhost:8011/webpage_hit_counter/get_svg_image/555555.svg
     Test the web application on the internet:
-curl https://bestia.dev/webpage_hit_counter/get_svg_image/555555
+curl https://bestia.dev/webpage_hit_counter/get_svg_image/555555.svg
 {RESET}"#
     );
 }

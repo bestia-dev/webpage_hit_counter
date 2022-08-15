@@ -73,11 +73,11 @@ echo "\033[0;33m podman logs webpage_hit_counter_cnt \033[0m"
 
 echo " "
 echo "\033[0;33m    Test the web application locally: \033[0m"
-echo "\033[0;33m curl http://localhost:8011/webpage_hit_counter/get_svg_image/555555 \033[0m"
+echo "\033[0;33m curl http://localhost:8011/webpage_hit_counter/get_svg_image/555555.svg \033[0m"
 
 echo " "
 echo "\033[0;33m    Test the web application on the internet: \033[0m"
-echo "\033[0;33m curl https://bestia.dev/webpage_hit_counter/get_svg_image/555555 \033[0m"
+echo "\033[0;33m curl https://bestia.dev/webpage_hit_counter/get_svg_image/555555.svg \033[0m"
     
 echo " "
 echo "\033[0;33m    You can delete the pod. The SQL data is persistent on the system disk: \033[0m"
