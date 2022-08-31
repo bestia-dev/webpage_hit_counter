@@ -47,9 +47,9 @@ fn match_arguments_and_call_tasks(mut args: std::env::Args) {
                     task_test();
                 } else if &task == "commit_and_push" {
                     let arg_2 = args.next();
-                    task_commit_and_push(arg_2);                
+                    task_commit_and_push(arg_2);
                 } else if &task == "publish_to_web" {
-                    task_publish_to_web();                
+                    task_publish_to_web();
                 } else {
                     println!("{RED}Error: Task {task} is unknown.{RESET}");
                     print_help();
