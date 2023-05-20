@@ -1,27 +1,27 @@
-[comment]: # (auto_md_to_doc_comments segment start A)
+[//]: # (auto_md_to_doc_comments segment start A)
 
 # webpage_hit_counter
 
-[comment]: # (auto_cargo_toml_to_md start)
+[//]: # (auto_cargo_toml_to_md start)
 
 **05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)**  
-***version: 1.0.59 date: 2022-08-15 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/webpage_hit_counter)***  
+***version: 1.0.59 date: 2022-08-15 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/webpage_hit_counter)***  
 
-[comment]: # (auto_cargo_toml_to_md end)
+[//]: # (auto_cargo_toml_to_md end)
 
-[comment]: # (auto_lines_of_code start)
+[//]: # (auto_lines_of_code start)
 [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-163-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-231-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-28-purple.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-19-yellow.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-19-orange.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 
-[comment]: # (auto_lines_of_code end)
+[//]: # (auto_lines_of_code end)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/blob/main/LICENSE) [![Rust](https://github.com/bestia-dev/webpage_hit_counter/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/webpage_hit_counter/) ![Hits](https://bestia.dev/webpage_hit_counter/get_svg_image/261590595.svg)
 
 Hashtags: #rustlang #tutorial #pwa #webserver #actix #database #postgres
-My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
+My projects on GitHub are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
 
 ## Intro
 
@@ -32,9 +32,10 @@ I just love  programming !
 This is my fifth video tutorial about programming in Rust.  
 In this tutorial I will show step by step how to create a simple web server with a database.  
 I am using the Rust development environment inside a docker container we created in the first two video tutorials. You can find them in my youtube channel :"bestia dev Tutorials for Rust programming language". Just type "bestia dev" in the youtube search box.  
+
 This project has also a youtube video tutorial. Watch it:
 <!-- markdownlint-disable MD033 -->
-[<img src="https://bestia.dev/youtube/webpage_hit_counter.png" width="400px">](https://bestia.dev/youtube/webpage_hit_counter.html)
+[<img src="https://bestia.dev/youtube/webpage_hit_counter.jpg" width="400px">](https://bestia.dev/youtube/webpage_hit_counter.html)
 <!-- markdownlint-enable MD033 -->
 
 ## webpage hit counter
@@ -150,7 +151,7 @@ We will find an example how to write Rust code to select data from the Postgres 
 I choose the asynchronous Tokio client because it matches the Tokio runtime of Actix-web.  
 <https://docs.rs/crate/tokio-postgres/0.7.6>  
 This is a good moment to create a git repository because we will experiment a little bit with the postgres code.
-I use ssh-agent and ssh-add to store my credentials for Github.
+I use ssh-agent and ssh-add to store my credentials for GitHub.
 We add the tokio-postgres crate to cargo.toml. We create a new module for postgres and a new function based on the example that read the hit count from the table. We have to add the new module to lib.rs. In the actix module we call the function and print the result to the terminal.
 ok. Build it, open it in the browser. It works. Check the terminal and we see the number 3 that was read from the table. Perfect.
 We want this number to show up in the SVG image. That is simple, because SVG is just an XML text. We will use the new format syntax from Rust edition 2021.
@@ -246,4 +247,4 @@ So I can drink a free beer for your health :-)
 [//bestiadev.substack.com](https://bestiadev.substack.com)  
 [//youtube.com/@bestia-dev-tutorials](https://youtube.com/@bestia-dev-tutorials)  
 
-[comment]: # (auto_md_to_doc_comments segment end A)
+[//]: # (auto_md_to_doc_comments segment end A)
