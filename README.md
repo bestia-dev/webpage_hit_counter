@@ -9,8 +9,8 @@
 
 [//]: # (auto_cargo_toml_to_md end)
 
-![status](https://img.shields.io/badge/maintained-green) 
-![status](https://img.shields.io/badge/ready_for_use-green) 
+![status](https://img.shields.io/badge/maintained-green)
+ ![status](https://img.shields.io/badge/ready_for_use-green)
 
 [//]: # (auto_lines_of_code start)
 [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-163-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
@@ -222,6 +222,12 @@ In this tutorial I will not go into details how to deploy it to my web server. M
 This is all for today.  
 Thank you for watching and see you next time.  
 Feel free to contact me on bestia.dev or github.
+
+## Alpine and musl
+
+2023-11-19
+I will compile the program to target musl to be used with Alpine docker image.  
+It is smaller and it does not depend on the version of Debian. I had problems when compiling to Debian 12 and then try to create the container on Debian 11.  
 
 ## deploying_rust_server_and_database
 

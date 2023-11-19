@@ -35,5 +35,6 @@
         "Verdana",
         "xlink",
         "zdravje"
-    ]
+    ],
+    "rust-analyzer.showUnlinkedFileNotification": false
 }

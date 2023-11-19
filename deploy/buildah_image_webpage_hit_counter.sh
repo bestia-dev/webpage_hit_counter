@@ -27,7 +27,7 @@ echo " "
 echo "\033[0;33m    Create new 'buildah container' named webpage_hit_counter_img \033[0m"
 set -o errexit
 
-buildah from --name webpage_hit_counter_img docker.io/library/debian:bullseye-slim
+buildah from --name webpage_hit_counter_img docker.io/library/alpine:latest
 
 buildah config \
 --author=github.com/bestia-dev \
@@ -37,13 +37,8 @@ buildah config \
 webpage_hit_counter_img
 
 echo " "
-echo "\033[0;33m    apk update \033[0m"
-buildah run webpage_hit_counter_img    apt -y update
-buildah run webpage_hit_counter_img    apt -y full-upgrade
-
-echo " "
 echo "\033[0;33m    Create non-root user 'rustdevuser' and home folder. \033[0m"
-buildah run webpage_hit_counter_img    useradd -ms /bin/bash rustdevuser
+buildah run webpage_hit_counter_img    adduser rustdevuser
 
 echo " "
 echo "\033[0;33m    Use rustdevuser for all subsequent commands. \033[0m"
@@ -68,11 +63,6 @@ buildah copy --chown 1000:1000 webpage_hit_counter_img './webpage_hit_counter' '
 buildah run webpage_hit_counter_img /bin/sh -c 'chmod 755 /home/rustdevuser/rustprojects/webpage_hit_counter'
 buildah run webpage_hit_counter_img /bin/sh -c 'ls -la /home/rustdevuser/rustprojects/webpage_hit_counter'
 buildah copy --chown 1000:1000 webpage_hit_counter_img './.env' '/home/rustdevuser/rustprojects/webpage_hit_counter'
-
-echo " "
-echo "\033[0;33m    Remove unwanted files \033[0m"
-buildah run --user root webpage_hit_counter_img    apt -y autoremove
-buildah run --user root webpage_hit_counter_img    apt -y clean
 
 echo " "
 echo "\033[0;33m    Finally save/commit the image named webpage_hit_counter_img \033[0m"

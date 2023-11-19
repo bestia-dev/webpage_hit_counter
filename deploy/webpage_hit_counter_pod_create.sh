@@ -57,8 +57,8 @@ podman create --name webpage_hit_counter_cnt \
 webpage_hit_counter_img:2022-08-09 \
 ./webpage_hit_counter
 
-echo "\033[0;33m    Wait 2 seconds, so the connection to postgres is not refused. \033[0m"
-sleep 2
+echo "\033[0;33m    Wait 5 seconds, so the connection to postgres is not refused. \033[0m"
+sleep 5
 
 echo "\033[0;33m    podman pod start \033[0m"
 podman pod start webpage_hit_counter_pod

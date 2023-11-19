@@ -10,6 +10,7 @@ pub async fn deadpool_postgres_start() -> deadpool_postgres::Pool {
     pg_config.host(std::env::var("PG.HOST").unwrap().as_str());
     pg_config.user(std::env::var("PG.USER").unwrap().as_str());
     pg_config.dbname(std::env::var("PG.DBNAME").unwrap().as_str());
+    pg_config.password(std::env::var("PG.PASSWORD").unwrap().as_str());
     let mgr_config = deadpool_postgres::ManagerConfig {
         recycling_method: deadpool_postgres::RecyclingMethod::Fast,
     };

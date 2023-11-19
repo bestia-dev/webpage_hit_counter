@@ -117,7 +117,7 @@ fn task_build() {
     let cargo_toml = CargoToml::read();
     auto_version_increment_semver_or_date();
     run_shell_command("cargo fmt");
-    run_shell_command("cargo build");
+    run_shell_command("cargo build --target x86_64-unknown-linux-musl");
     println!(
         r#"{YELLOW}
     After `cargo auto build`, run the compiled binary, examples and/or tests
@@ -140,12 +140,12 @@ fn task_release() {
     auto_lines_of_code("");
 
     run_shell_command("cargo fmt");
-    run_shell_command("cargo build --release");
-    run_shell_command("strip target/release/webpage_hit_counter");
+    run_shell_command("cargo build --release --target x86_64-unknown-linux-musl");
+    run_shell_command("strip target/x86_64-unknown-linux-musl/release/webpage_hit_counter");
     println!(
         r#"{YELLOW}
     After `cargo auto release`, run the compiled binary, examples and/or tests
-./target/release/{package_name}
+./target/x86_64-unknown-linux-musl/release/{package_name}
     In the browser or in curl open 
 http://localhost:8080/webpage_hit_counter/get_svg_image/555555.svg
     if ok, then
@@ -224,7 +224,7 @@ fn task_publish_to_web() {
     run_shell_command(&shell_command);
 
     // rsync files
-    run_shell_command("rsync -e ssh -a --info=progress2 ./target/release/webpage_hit_counter luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
+    run_shell_command("rsync -e ssh -a --info=progress2 ./target/x86_64-unknown-linux-musl/release/webpage_hit_counter luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
     run_shell_command("rsync -e ssh -a --info=progress2 ./.env luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
     run_shell_command("rsync -e ssh -a --info=progress2 ./deploy/buildah_image_webpage_hit_counter.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
     run_shell_command("rsync -e ssh -a --info=progress2 ./deploy/webpage_hit_counter_pod_create.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/");
