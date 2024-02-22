@@ -124,7 +124,7 @@ fn task_build() {
 ./target/debug/{package_name}
     In the browser or in curl open 
 http://localhost:8080/webpage_hit_counter/get_svg_image/555555.svg
-    if ok, then
+    If ok then
 cargo auto release
 {RESET}"#,
 package_name = cargo_toml.package_name(),
@@ -148,7 +148,7 @@ fn task_release() {
 ./target/x86_64-unknown-linux-musl/release/{package_name}
     In the browser or in curl open 
 http://localhost:8080/webpage_hit_counter/get_svg_image/555555.svg
-    if ok, then
+    If ok then
 cargo auto doc
 {RESET}"#,
 package_name = cargo_toml.package_name(),
@@ -176,7 +176,7 @@ fn task_doc() {
     // message to help user with next move
     println!(
         r#"{YELLOW}
-    After `cargo auto doc`, check `docs/index.html`. If ok, then test the documentation code examples
+    After `cargo auto doc`, check `docs/index.html`. If ok then test the documentation code examples
 cargo auto test
 {RESET}"#
     );
@@ -187,7 +187,7 @@ fn task_test() {
     run_shell_command("cargo test");
     println!(
         r#"{YELLOW}
-    After `cargo auto test`. If ok, then 
+    After `cargo auto test`. If ok then 
 cargo auto commit_and_push "message"
     with mandatory commit message
 {RESET}"#
