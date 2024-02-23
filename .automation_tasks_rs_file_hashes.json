@@ -1,0 +1,28 @@
+{
+  "vec_file_metadata": [
+    {
+      "filename": "Cargo.toml",
+      "filehash": "75523073f5769b288e2dbc5e06d1f44f3dea65a5b7b95bef57a5a523740b82d7"
+    },
+    {
+      "filename": "src/postgres_mod.rs",
+      "filehash": "b076e740b58ab95c8805c60647807d3e2a2777aca379922c944c262514b83358"
+    },
+    {
+      "filename": "src/bin/webpage_hit_counter/main.rs",
+      "filehash": "61f7a7e19cb9fb29dbc6bcc256d2c46a3b80aaf70d277422c7a242fff5b8d7a7"
+    },
+    {
+      "filename": "src/deadpool_mod.rs",
+      "filehash": "4be58acb82f03c3f3a903136bcdc6c0967508eba522d049833f394dcacdcff2b"
+    },
+    {
+      "filename": "src/actix_mod.rs",
+      "filehash": "098f02ccd0be94df722ef9d1989e95b71fd00a50e6f24c33bc964018be53a3ac"
+    },
+    {
+      "filename": "src/lib.rs",
+      "filehash": "b23d923452c4fdb74a82d2cfb9fbd114209392bb8f3b3304ee1460fb307ad722"
+    }
+  ]
+}

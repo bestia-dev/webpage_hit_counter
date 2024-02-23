@@ -1,8 +1,5 @@
 #!/bin/sh
-
-# ssh_psql_insert_webpage.sh
-
-# README:
+# webpage_hit_counter/ssh_psql_insert_webpage.sh
 
 echo " "
 echo "\033[0;33m    Bash script to insert a webpage in the webpage_hit_counter database on bestia.dev over SSH in one command. \033[0m"
@@ -13,7 +10,7 @@ echo "\033[0;33m    sh ssh_psql_insert_webpage.sh test.com \033[0m"
 
 if [ $# != 1 ]
 then
-  echo "Incorrect number of arguments"
+  echo "Incorrect number of arguments. The only argument is host_name like github.com or bestia.dev"
   exit 1
 fi
 
