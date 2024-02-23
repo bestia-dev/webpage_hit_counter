@@ -112,7 +112,7 @@ fn completion() {
 
 /// cargo build
 fn task_build() {
-    let cargo_toml = CargoToml::read();
+    let cargo_toml = cl::CargoToml::read();
     cl::auto_version_increment_semver_or_date();
     cl::run_shell_command("cargo fmt");
     cl::run_shell_command("cargo build --target x86_64-unknown-linux-musl");
@@ -132,7 +132,7 @@ package_name = cargo_toml.package_name(),
 
 /// cargo build --release
 fn task_release() {
-    let cargo_toml = CargoToml::read();
+    let cargo_toml = cl::CargoToml::read();
     cl::auto_version_increment_semver_or_date();
     cl::auto_cargo_toml_to_md();
     cl::auto_lines_of_code("");
@@ -225,7 +225,7 @@ r#"
 fn task_publish_to_web() {
     println!(r#"{YELLOW}Use ssh-agent and ssh-add to store the credentials.{RESET}"#);
 
-    let cargo_toml = CargoToml::read();
+    let cargo_toml = cl::CargoToml::read();
     // git tag
     let shell_command = format!(
         "git tag -f -a v{version} -m version_{version}",
