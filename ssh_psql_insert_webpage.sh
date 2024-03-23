@@ -1,20 +1,29 @@
 #!/bin/sh
 # webpage_hit_counter/ssh_psql_insert_webpage.sh
 
-echo " "
-echo "\033[0;33m    Bash script to insert a webpage in the webpage_hit_counter database on bestia.dev over SSH in one command. \033[0m"
-echo "\033[0;33m    Use sshadd to enter the passcode for the SSH connection beforehand. \033[0m"
-echo "\033[0;33m    The bash script needs 1 arguments: host_name like this: \033[0m"
-echo "\033[0;33m    sh ssh_psql_insert_webpage.sh test.com \033[0m"
+echo -e " "
+echo -e "\033[0;33m    Bash script to insert a webpage in the webpage_hit_counter database \033[0m"
+echo -e "\033[0;33m    on bestia.dev over SSH in one command. \033[0m"
+echo -e "\033[0;33m    Use sshadd to enter the passcode for the SSH connection beforehand. \033[0m"
+echo -e "\033[0;33m    The bash script needs 1 arguments: host_name like this: \033[0m"
+echo -e "\033[0;33m    sh ssh_psql_insert_webpage.sh test.com \033[0m"
 # repository: https://github.com/bestia-dev/webpage_hit_counter
 
 if [ $# != 1 ]
 then
-  echo "Incorrect number of arguments. The only argument is host_name like github.com or bestia.dev"
+  echo -e " "
+  echo -e "\033[0;31m Incorrect number of arguments. The only argument is host_name like github.com or bestia.dev \033[0m"
+  echo -e " "
   exit 1
 fi
 
-echo ""
+# psql asks a password prompt in plain text. Everybody watching the screen can see the password.
+# I will ask for the password separately and store it in the variable $password.
+# Then I will send the command to store it as env var PGPASSWORD on the server. It will live only for this session.
+echo -n Postgres Server Password: 
+read -s password
+
+echo -e " "
 # openssl returns an unsigned hexadecimal 4 bytes
 hexNum=$(openssl rand -hex 4)
 # echo $hexNum
@@ -30,16 +39,15 @@ else
 fi
 # echo $positiveDecNum
 
-echo "\033[0;33m    Get random number from openssl: ${positiveDecNum} \033[0m"
+echo -e "\033[0;33m    Get random number from openssl: ${positiveDecNum} \033[0m"
 
-echo "\033[0;33m    Use this number for the webpage_hit_counter badge:  \033[0m"
-echo "\033[0;32m![$1](https://bestia.dev/webpage_hit_counter/get_svg_image/${positiveDecNum}.svg) \033[0m"
-
-echo "\033[0;33m    You will be asked now for the password of the Postgres database.  \033[0m"
+echo -e "\033[0;33m    Use this number for the webpage_hit_counter badge:  \033[0m"
+echo -e "\033[0;32m![$1](https://bestia.dev/webpage_hit_counter/get_svg_image/${positiveDecNum}.svg) \033[0m"
 
 ssh luciano_bestia@bestia.dev \
 " \
-psql -h localhost -p 5432 -U admin -W -d webpage_hit_counter -c \
+export PGPASSWORD=\"$password\"; \
+psql -h localhost -p 5432 -U admin -d webpage_hit_counter -c \
     \" \
     insert into webpage (id, webpage) values($positiveDecNum, '$1'); \
     insert into hit_counter (webpage_id,count) \
