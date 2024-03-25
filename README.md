@@ -73,10 +73,10 @@ I choose PostgreSQL or Postgres as my preferred database because I have a long h
 ## Postgres in a container
 
 My Rust development environment is a podman pod with 2 containers. I will add to that pod a new container for the Postgres server and one with the pgAdmin management tool.  
-I enhanced the script rust_dev_pod_create.sh from my project docker_rust_development and started the new pod. A new port 9876 will be used for pgAdmin.  
+I enhanced the script crustde_pod_create.sh from my project crustde_cnt_img_pod and started the new pod. A new port 9876 will be used for pgAdmin.  
 I will now force the reboot of WSL to demonstrate how to restart the pod. In powershell run as administrator I use "Get-Service LxssManager | Restart-Service".
 After reboot I need a small bash script to restart the pod, because of the peculiarities of WSL.
-<https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/docker_rust_development>
+<https://github.com/CRUSTDE-Containerized-Rust-DevEnv/crustde_cnt_img_pod>
 
 ## pgAdmin create database and tables
 
