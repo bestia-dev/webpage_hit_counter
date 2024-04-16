@@ -4,7 +4,7 @@
 printf " \n"
 printf "\033[0;33m    Bash script to insert a webpage in the webpage_hit_counter database \033[0m\n"
 printf "\033[0;33m    on bestia.dev over SSH in one command. \033[0m\n"
-printf "\033[0;33m    Use sshadd to enter the passcode for the SSH connection beforehand. \033[0m\n"
+printf "\033[0;33m    Use sshadd to enter the passphrase for the SSH connection beforehand. \033[0m\n"
 printf "\033[0;33m    The bash script needs 1 arguments: host_name like this: \033[0m\n"
 printf "\033[0;33m    sh ssh_psql_insert_webpage.sh test.com \033[0m\n"
 # repository: https://github.com/bestia-dev/webpage_hit_counter

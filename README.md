@@ -228,7 +228,7 @@ Feel free to contact me on bestia.dev or github.
 ## Adding new webpages into the database
 
 I created a bash script to insert a webpage in the webpage_hit_counter database on bestia.dev over SSH in one command.  
-Use sshadd to enter the passcode for the SSH connection beforehand.  
+Use sshadd to enter the passphrase for the SSH connection beforehand.  
 The bash script needs 1 arguments: `host_name` like this:  
 
 ```bash
