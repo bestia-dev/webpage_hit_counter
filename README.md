@@ -22,7 +22,7 @@
 [//]: # (auto_lines_of_code end)
 
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/blob/main/LICENSE)
-  [![Rust](https://github.com/bestia-dev/webpage_hit_counter/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+  [![Rust](https://github.com/bestia-dev/webpage_hit_counter/workflows/rust_fmt_auto_build_test/badge.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
   ![webpage_hit_counter](https://bestia.dev/webpage_hit_counter/get_svg_image/261590595.svg)
 
 Hashtags: #rustlang #tutorial #pwa #webserver #actix #database #postgres
