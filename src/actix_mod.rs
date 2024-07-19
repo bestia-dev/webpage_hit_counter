@@ -6,29 +6,25 @@
 
 /// extract path info from "/webpage_hit_counter/get_svg_image/{webpage_id}.svg" url
 /// {webpage_id} - deserializes to a i32
-pub async fn get_svg_image(
-    db_pool: actix_web::web::Data<deadpool_postgres::Pool>,
-    path: actix_web::web::Path<i32>,
-) -> impl actix_web::Responder {
+pub async fn get_svg_image(db_pool: actix_web::web::Data<deadpool_postgres::Pool>, path: actix_web::web::Path<i32>) -> impl actix_web::Responder {
     let webpage_id = path.into_inner();
 
     println!("webpage_hit_counter/get_svg_image/{webpage_id}.svg");
-    let hit_count = crate::postgres_mod::select_count(db_pool, webpage_id)
-        .await
-        .unwrap();
+    let hit_count = crate::postgres_mod::select_count(db_pool, webpage_id).await.unwrap();
 
     actix_web::HttpResponse::Ok()
-    .append_header(actix_web::http::header::ContentType(mime::IMAGE_SVG))
-    .append_header(actix_web::http::header::CacheControl(vec![
-      actix_web::http::header::CacheDirective::NoCache,
-      actix_web::http::header::CacheDirective::MaxAge(0u32),
-      actix_web::http::header::CacheDirective::NoStore,
-      actix_web::http::header::CacheDirective::SMaxAge(0u32),
-      actix_web::http::header::CacheDirective::ProxyRevalidate,
-    ]))
-    .append_header(("Pragma", "no-cache"))
-    .append_header(("Expires","-1"))
-    .body(format!(r##"
+        .append_header(actix_web::http::header::ContentType(mime::IMAGE_SVG))
+        .append_header(actix_web::http::header::CacheControl(vec![
+            actix_web::http::header::CacheDirective::NoCache,
+            actix_web::http::header::CacheDirective::MaxAge(0u32),
+            actix_web::http::header::CacheDirective::NoStore,
+            actix_web::http::header::CacheDirective::SMaxAge(0u32),
+            actix_web::http::header::CacheDirective::ProxyRevalidate,
+        ]))
+        .append_header(("Pragma", "no-cache"))
+        .append_header(("Expires", "-1"))
+        .body(format!(
+            r##"
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 width="82" height="20">
  <linearGradient id="smooth" x2="0" y2="100%">
@@ -53,7 +49,8 @@ width="82" height="20">
    <text x="60" y="14" fill="#fff">{hit_count}</text>
  </g>
 </svg>    
-    "##))
+    "##
+        ))
 }
 
 #[cfg(test)]

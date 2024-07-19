@@ -1,5 +1,6 @@
 [package]
 name = "automation_tasks_rs"
+# binary executable does not need to be SemVer, because nobody depends on it
 version = "1.0.0"
 authors = ["bestia.dev"]
 homepage = "https://bestia.dev"
@@ -8,4 +9,28 @@ description = "Automation tasks coded in Rust language for the workflow of Rust 
 publish = false
 
 [dependencies]
-cargo_auto_lib = "2.0.8"
+# SemVer rules: Major version zero (0.y.z) is for initial development. Anything MAY change at any time. The public API SHOULD NOT be considered stable.
+# WARNING: Although dependecies in Cargo.toml look like a specific version of the crate, they are just like a carret version (^x.y.z) and actually specify 
+# the minimum version and allow automatic SemVer compatible updates up to a MAJOR increment! Always check the true version with `cargo tree`!
+cargo_auto_lib = {version = "2.4.8", path="../../cargo_auto_lib"}
+cargo_auto_github_lib = "1.1.6"
+cargo_auto_encrypt_secret_lib = "1.1.7"
+
+inquire = "0.7.0"
+serde_json = {version= "1.0.114", features=["std"]}
+
+# the version of reqwest must be the same as the version in the library cargo_auto_github_lib
+reqwest = { version = "0.12.3", features = ["blocking", "stream"] }
+
+camino = "1.1.6"
+aes-gcm = "0.10.3"
+ssh-key = { version = "0.6.4", features = [ "rsa", "encryption"] }
+rsa = { version = "0.9.6", features = ["sha2","pem"] }
+secrecy = { version="0.8.0", features=["alloc"]}
+base64ct = {version = "1.6.0", features = ["alloc"] }
+
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter", "std", "fmt", "time"] }
+tracing-appender="0.2.2"
+time = {version="0.3.36", features=["macros","local-offset"]}
+           

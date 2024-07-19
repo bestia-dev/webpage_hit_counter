@@ -1,6 +1,6 @@
 [package]
 name = "webpage_hit_counter"
-version = "1.0.62"
+version = "1.0.64"
 description = "05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)"
 authors = ["bestia.dev"]
 homepage = "https://bestia.dev"
@@ -9,7 +9,7 @@ license = "MIT"
 readme = "README.md"
 repository = "https://github.com/bestia-dev/webpage_hit_counter"
 categories = ["rust-patterns"]
-keywords = ["Rust cli and library project template"]
+keywords = ["webserver", "database"]
 publish = false
 
 [dependencies]

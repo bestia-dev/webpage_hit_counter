@@ -24,11 +24,11 @@ podman pod rm -f webpage_hit_counter_pod || :
 printf " \n"
 printf "\033[0;33m    Create pod \033[0m\n"
 # in a "pod" the "publish port" is tied to the pod and not containers.
-# http connection     8011  (forwarding from internal port 8080)
+# http connection     8011  (forwarding from internal port 8011)
 # postgres connection  5432
 
 podman pod create \
--p 127.0.0.1:8011:8080/tcp \
+-p 127.0.0.1:8011:8011/tcp \
 -p 127.0.0.1:5432:5432/tcp \
 --label name=webpage_hit_counter_pod \
 --label version=1.0 \

@@ -3,4 +3,4 @@
 
 # I think it is better to have always newer dependencies in development
 # and not count on that the old dependencies are still ok.
-# Cargo.lock
+Cargo.lock

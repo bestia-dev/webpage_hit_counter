@@ -5,7 +5,10 @@
 [//]: # (auto_cargo_toml_to_md start)
 
 **05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)**  
-***version: 1.0.59 date: 2022-08-15 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/webpage_hit_counter)***  
+***version: 1.0.64 date: 2024-07-19 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/webpage_hit_counter)***
+
+ ![webserver](https://img.shields.io/badge/webserver-orange)
+ ![database](https://img.shields.io/badge/database-orange)
 
 [//]: # (auto_cargo_toml_to_md end)
 
@@ -13,9 +16,9 @@
  ![ready_for_use](https://img.shields.io/badge/ready_for_use-green)
 
 [//]: # (auto_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-163-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
-[![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-231-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
-[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-28-purple.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-145-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+[![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-9-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-26-purple.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-19-yellow.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-19-orange.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 
@@ -25,7 +28,7 @@
   [![Rust](https://github.com/bestia-dev/webpage_hit_counter/workflows/rust_fmt_auto_build_test/badge.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
   ![webpage_hit_counter](https://bestia.dev/webpage_hit_counter/get_svg_image/261590595.svg)
 
-Hashtags: #rustlang #tutorial #pwa #webserver #actix #database #postgres
+Hashtags: #rustlang #tutorial #pwa #webserver #actix #database #postgres  
 My projects on GitHub are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
 
 ## Intro
@@ -118,9 +121,9 @@ The bin main.rs is a separate part of the project and we must write a use statem
 In the explorer side panel we can see in yellow the modules that have warning and in red the ones with errors. We can clean this problems easily.
 With F1 we got all the VSCode functions under our fingertips. I need to Comment the code. Sometimes typing is faster than using the mouse.
 We can now build the project with cargo auto build.
-In VSCode we have to open the port 8080, so that we can access the container from our browser.
+In VSCode we have to open the port 8011, so that we can access the container from our browser.
 Run the compiled code without any parameters.
-Now open the browser on localhost port 8080.  
+Now open the browser on localhost port 8011.  
 Hello world! It works. Let's try with another function.
 The routing for Hey calls the functions manual_hello and writes "Hey there!".
 

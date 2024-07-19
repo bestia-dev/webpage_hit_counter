@@ -18,14 +18,13 @@
     },
     "rust-analyzer.showUnlinkedFileNotification": false,
     "cSpell.words": [
-        "zcvf",
-        "CRUSTDE",
         "actix",
         "Alla",
         "bestia",
         "bestiadev",
         "buildah",
         "crev",
+        "CRUSTDE",
         "DBNAME",
         "deadpool",
         "debuginfo",
@@ -53,7 +52,10 @@
         "unoptimized",
         "Uzgur",
         "Verdana",
+        "webserver",
         "xlink",
+        "zcvf",
         "zdravje"
-    ]
+    ],
+    "livePreview.defaultPreviewPath": "/docs/index.html"
 }
