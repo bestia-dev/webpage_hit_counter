@@ -1,0 +1,251 @@
+./docs/help.html
+Document: "2" is not a file!
+
+line 1 column 1798 - Warning: trimming empty <button>
+line 1 column 2499 - Warning: trimming empty <span>
+./docs/src/webpage_hit_counter/actix_mod.rs.html
+Document: "2" is not a file!
+
+line 1 column 2131 - Warning: trimming empty <span>
+./docs/src/webpage_hit_counter/lib.rs.html
+Document: "2" is not a file!
+
+line 1 column 2119 - Warning: trimming empty <span>
+./docs/src/webpage_hit_counter/postgres_mod.rs.html
+Document: "2" is not a file!
+
+line 1 column 2137 - Warning: trimming empty <span>
+./docs/src/webpage_hit_counter/deadpool_mod.rs.html
+Document: "2" is not a file!
+
+line 1 column 2137 - Warning: trimming empty <span>
+./docs/settings.html
+Document: "2" is not a file!
+
+line 1 column 1796 - Warning: trimming empty <button>
+line 1 column 2501 - Warning: trimming empty <span>
+./docs/index.html
+Document: "2" is not a file!
+
+line 1 column 1 - Warning: missing <!DOCTYPE> declaration
+line 1 column 1 - Warning: inserting missing 'title' element
+./docs/webpage_hit_counter/fn.get_svg_image.html
+Document: "2" is not a file!
+
+line 1 column 1980 - Warning: trimming empty <button>
+line 1 column 2367 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/constant.RED.html
+Document: "2" is not a file!
+
+line 1 column 1936 - Warning: trimming empty <button>
+line 1 column 2323 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/all.html
+Document: "2" is not a file!
+
+line 1 column 1841 - Warning: trimming empty <button>
+line 1 column 2391 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/fn.deadpool_postgres_start.html
+Document: "2" is not a file!
+
+line 1 column 1964 - Warning: trimming empty <button>
+line 1 column 2351 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/constant.YELLOW.html
+Document: "2" is not a file!
+
+line 1 column 1942 - Warning: trimming empty <button>
+line 1 column 2329 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/deadpool_mod/fn.deadpool_postgres_start.html
+Document: "2" is not a file!
+
+line 1 column 2008 - Warning: trimming empty <button>
+line 1 column 2468 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/deadpool_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 1909 - Warning: trimming empty <button>
+line 1 column 2510 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/constant.GREEN.html
+Document: "2" is not a file!
+
+line 1 column 1940 - Warning: trimming empty <button>
+line 1 column 2327 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/enum.LibraryError.html
+Document: "2" is not a file!
+
+line 5 column 790 - Warning: missing </summary> before <section>
+line 5 column 1278 - Warning: discarding unexpected </summary>
+line 5 column 1355 - Warning: missing </summary> before <section>
+line 5 column 1986 - Warning: discarding unexpected </summary>
+line 5 column 2239 - Warning: missing </summary> before <section>
+line 5 column 2737 - Warning: discarding unexpected </summary>
+line 5 column 2814 - Warning: missing </summary> before <section>
+line 5 column 3461 - Warning: discarding unexpected </summary>
+line 5 column 3716 - Warning: missing </summary> before <section>
+line 5 column 4208 - Warning: discarding unexpected </summary>
+line 5 column 4285 - Warning: missing </summary> before <section>
+line 5 column 5043 - Warning: discarding unexpected </summary>
+line 5 column 5278 - Warning: missing </summary> before <section>
+line 5 column 5866 - Warning: discarding unexpected </summary>
+line 5 column 5876 - Warning: missing </span> before <div>
+line 5 column 5929 - Warning: inserting implicit <span>
+line 5 column 6036 - Warning: discarding unexpected </span>
+line 5 column 6228 - Warning: missing </summary> before <section>
+line 5 column 6969 - Warning: discarding unexpected </summary>
+line 5 column 6979 - Warning: missing </span> before <div>
+line 5 column 7032 - Warning: inserting implicit <span>
+line 5 column 7160 - Warning: discarding unexpected </span>
+line 5 column 7220 - Warning: missing </summary> before <section>
+line 5 column 7772 - Warning: discarding unexpected </summary>
+line 5 column 7782 - Warning: missing </span> before <div>
+line 5 column 7833 - Warning: inserting implicit <span>
+line 5 column 7963 - Warning: discarding unexpected </span>
+line 5 column 11122 - Warning: missing </summary> before <section>
+line 5 column 11480 - Warning: <div> isn't allowed in <h3> elements
+line 6 column 149 - Warning: discarding unexpected </div>
+line 6 column 170 - Warning: discarding unexpected </summary>
+line 6 column 247 - Warning: missing </summary> before <section>
+line 6 column 752 - Warning: discarding unexpected </summary>
+line 6 column 1008 - Warning: missing </summary> before <section>
+line 6 column 1413 - Warning: <div> isn't allowed in <h3> elements
+line 7 column 139 - Warning: discarding unexpected </div>
+line 7 column 160 - Warning: discarding unexpected </summary>
+line 7 column 237 - Warning: missing </summary> before <section>
+line 7 column 718 - Warning: discarding unexpected </summary>
+line 7 column 967 - Warning: missing </summary> before <section>
+line 7 column 1387 - Warning: <div> isn't allowed in <h3> elements
+line 8 column 139 - Warning: discarding unexpected </div>
+line 8 column 160 - Warning: discarding unexpected </summary>
+line 8 column 237 - Warning: missing </summary> before <section>
+line 8 column 745 - Warning: discarding unexpected </summary>
+line 8 column 999 - Warning: missing </summary> before <section>
+line 8 column 1416 - Warning: discarding unexpected </summary>
+line 8 column 1493 - Warning: missing </summary> before <section>
+line 8 column 1866 - Warning: discarding unexpected </summary>
+line 9 column 77 - Warning: missing </summary> before <section>
+line 9 column 257 - Warning: discarding unexpected </summary>
+line 9 column 334 - Warning: missing </summary> before <section>
+line 9 column 569 - Warning: discarding unexpected </summary>
+line 10 column 111 - Warning: missing </summary> before <section>
+line 10 column 349 - Warning: discarding unexpected </summary>
+line 11 column 128 - Warning: missing </summary> before <section>
+line 11 column 537 - Warning: <div> isn't allowed in <h3> elements
+line 12 column 146 - Warning: discarding unexpected </div>
+line 12 column 167 - Warning: discarding unexpected </summary>
+line 12 column 244 - Warning: missing </summary> before <section>
+line 12 column 617 - Warning: discarding unexpected </summary>
+line 15 column 77 - Warning: missing </summary> before <section>
+line 15 column 492 - Warning: discarding unexpected </summary>
+line 15 column 555 - Warning: missing </summary> before <section>
+line 15 column 870 - Warning: discarding unexpected </summary>
+line 15 column 1012 - Warning: missing </summary> before <section>
+line 15 column 1408 - Warning: <div> isn't allowed in <h3> elements
+line 16 column 271 - Warning: discarding unexpected </div>
+line 16 column 292 - Warning: discarding unexpected </summary>
+line 16 column 369 - Warning: missing </summary> before <section>
+line 16 column 912 - Warning: discarding unexpected </summary>
+line 16 column 1179 - Warning: missing </summary> before <section>
+line 16 column 1603 - Warning: <div> isn't allowed in <h3> elements
+line 17 column 146 - Warning: discarding unexpected </div>
+line 17 column 167 - Warning: discarding unexpected </summary>
+line 17 column 230 - Warning: missing </summary> before <section>
+line 17 column 682 - Warning: discarding unexpected </summary>
+line 17 column 826 - Warning: missing </summary> before <section>
+line 17 column 1693 - Warning: discarding unexpected </summary>
+line 17 column 1825 - Warning: missing </summary> before <section>
+line 17 column 2249 - Warning: <div> isn't allowed in <h3> elements
+line 18 column 155 - Warning: discarding unexpected </div>
+line 18 column 176 - Warning: discarding unexpected </summary>
+line 18 column 239 - Warning: missing </summary> before <section>
+line 18 column 876 - Warning: discarding unexpected </summary>
+line 18 column 1020 - Warning: missing </summary> before <section>
+line 18 column 1883 - Warning: discarding unexpected </summary>
+line 18 column 2015 - Warning: missing </summary> before <section>
+line 18 column 2188 - Warning: <div> isn't allowed in <h3> elements
+line 19 column 27 - Warning: discarding unexpected </div>
+line 19 column 48 - Warning: discarding unexpected </summary>
+line 19 column 315 - Warning: missing </summary> before <section>
+line 19 column 507 - Warning: discarding unexpected </summary>
+line 19 column 584 - Warning: missing </summary> before <section>
+line 19 column 831 - Warning: <div> isn't allowed in <h4> elements
+line 20 column 153 - Warning: discarding unexpected </div>
+line 20 column 174 - Warning: discarding unexpected </summary>
+line 21 column 113 - Warning: missing </summary> before <section>
+line 21 column 375 - Warning: discarding unexpected </summary>
+line 1 column 1907 - Warning: trimming empty <button>
+line 1 column 4196 - Warning: trimming empty <span>
+line 5 column 790 - Warning: trimming empty <summary>
+line 5 column 1355 - Warning: trimming empty <summary>
+line 5 column 2239 - Warning: trimming empty <summary>
+line 5 column 2814 - Warning: trimming empty <summary>
+line 5 column 3716 - Warning: trimming empty <summary>
+line 5 column 4285 - Warning: trimming empty <summary>
+line 5 column 5278 - Warning: trimming empty <summary>
+line 5 column 5876 - Warning: trimming empty <span>
+line 5 column 6228 - Warning: trimming empty <summary>
+line 5 column 6979 - Warning: trimming empty <span>
+line 5 column 7220 - Warning: trimming empty <summary>
+line 5 column 7782 - Warning: trimming empty <span>
+line 5 column 11122 - Warning: trimming empty <summary>
+line 6 column 247 - Warning: trimming empty <summary>
+line 6 column 1008 - Warning: trimming empty <summary>
+line 7 column 237 - Warning: trimming empty <summary>
+line 7 column 967 - Warning: trimming empty <summary>
+line 8 column 237 - Warning: trimming empty <summary>
+line 8 column 999 - Warning: trimming empty <summary>
+line 8 column 1493 - Warning: trimming empty <summary>
+line 9 column 77 - Warning: trimming empty <summary>
+line 9 column 334 - Warning: trimming empty <summary>
+line 10 column 111 - Warning: trimming empty <summary>
+line 11 column 128 - Warning: trimming empty <summary>
+line 12 column 244 - Warning: trimming empty <summary>
+line 15 column 77 - Warning: trimming empty <summary>
+line 15 column 555 - Warning: trimming empty <summary>
+line 15 column 1012 - Warning: trimming empty <summary>
+line 16 column 369 - Warning: trimming empty <summary>
+line 16 column 1179 - Warning: trimming empty <summary>
+line 17 column 230 - Warning: trimming empty <summary>
+line 17 column 826 - Warning: trimming empty <summary>
+line 17 column 1825 - Warning: trimming empty <summary>
+line 18 column 239 - Warning: trimming empty <summary>
+line 18 column 1020 - Warning: trimming empty <summary>
+line 18 column 2015 - Warning: trimming empty <summary>
+line 19 column 315 - Warning: trimming empty <summary>
+line 19 column 584 - Warning: trimming empty <summary>
+line 21 column 113 - Warning: trimming empty <summary>
+./docs/webpage_hit_counter/postgres_mod/fn.select_count.html
+Document: "2" is not a file!
+
+line 1 column 1986 - Warning: trimming empty <button>
+line 1 column 2446 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/postgres_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 1909 - Warning: trimming empty <button>
+line 1 column 2510 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/constant.RESET.html
+Document: "2" is not a file!
+
+line 1 column 1940 - Warning: trimming empty <button>
+line 1 column 2327 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/fn.select_count.html
+Document: "2" is not a file!
+
+line 1 column 1942 - Warning: trimming empty <button>
+line 1 column 2329 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/index.html
+Document: "2" is not a file!
+
+line 27 column 66 - Warning: <img> attribute "width" has invalid value "400px"
+line 27 column 66 - Warning: <img> lacks "alt" attribute
+line 1 column 1868 - Warning: trimming empty <button>
+line 1 column 2536 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/actix_mod/fn.get_svg_image.html
+Document: "2" is not a file!
+
+line 1 column 2021 - Warning: trimming empty <button>
+line 1 column 2478 - Warning: trimming empty <span>
+./docs/webpage_hit_counter/actix_mod/index.html
+Document: "2" is not a file!
+
+line 1 column 1945 - Warning: trimming empty <button>
+line 1 column 2543 - Warning: trimming empty <span>

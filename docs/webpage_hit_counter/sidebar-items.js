@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["GREEN","RED","RESET","YELLOW"],"enum":["LibraryError"],"fn":["deadpool_postgres_start","get_svg_image","select_count"],"mod":["actix_mod","deadpool_mod","postgres_mod"]};
