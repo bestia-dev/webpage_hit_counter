@@ -454,7 +454,7 @@ fn task_github_new_release() {
     let tar_name = format!("{repo_name}-{tag_name_version}-x86_64-unknown-linux-gnu.tar.gz");
 
     cl::ShellCommandLimitedDoubleQuotesSanitizer::new(
-        r#"tar -zcvf "{tar_name_sanitized_for_double_quote}" "target/release/{repo_name_sanitized_for_double_quote}" "#).unwrap_or_else(|e| panic!("{e}"))
+        r#"tar -zcvf "{tar_name_sanitized_for_double_quote}" "target/x86_64-unknown-linux-musl/release/{repo_name_sanitized_for_double_quote}" "#).unwrap_or_else(|e| panic!("{e}"))
     .arg("{tar_name_sanitized_for_double_quote}", &tar_name).unwrap_or_else(|e| panic!("{e}"))
     .arg("{repo_name_sanitized_for_double_quote}", &repo_name).unwrap_or_else(|e| panic!("{e}"))
     .run().unwrap_or_else(|e| panic!("{e}"));
