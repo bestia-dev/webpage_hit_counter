@@ -2,11 +2,11 @@
   "vec_file_metadata": [
     {
       "filename": "Cargo.toml",
-      "filehash": "36e12f4e81589da7ec6799241abc14136aa445a40abd317a18690554d47f2756"
+      "filehash": "6b5994628c71cd15043e0ae8ac93e34f64186d2869ec814f3c8181a4e5dc6188"
     },
     {
       "filename": "src/actix_mod.rs",
-      "filehash": "556ca67ab4e2a7dbabb9b8e159c7098b60444f292dd917bd89824ec8f0eabb0f"
+      "filehash": "612b051d6eba5ff36231dec2782ea8e2e748ab27ddb065ac0b5e2dce5a2df336"
     },
     {
       "filename": "src/bin/webpage_hit_counter/main.rs",
@@ -22,7 +22,7 @@
     },
     {
       "filename": "src/postgres_mod.rs",
-      "filehash": "b7e7d75b773c620671da3e0fc5b92ee3d55964918cd7157f68f5fcbed31b775c"
+      "filehash": "f2c0eea5e669b6da1a47811bccdd3c5f9bef9c4da816c4a8147dd5dcde73c2e7"
     }
   ]
 }

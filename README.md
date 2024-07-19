@@ -5,7 +5,7 @@
 [//]: # (auto_cargo_toml_to_md start)
 
 **05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)**  
-***version: 1.0.64 date: 2024-07-19 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/webpage_hit_counter)***
+***version: 1.0.66 date: 2024-07-19 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/webpage_hit_counter)***
 
  ![webserver](https://img.shields.io/badge/webserver-orange)
  ![database](https://img.shields.io/badge/database-orange)
@@ -16,9 +16,9 @@
  ![ready_for_use](https://img.shields.io/badge/ready_for_use-green)
 
 [//]: # (auto_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-145-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-159-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-9-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
-[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-26-purple.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+[![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-29-purple.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-19-yellow.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-19-orange.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 

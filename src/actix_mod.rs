@@ -6,11 +6,26 @@
 
 /// extract path info from "/webpage_hit_counter/get_svg_image/{webpage_id}.svg" url
 /// {webpage_id} - deserializes to a i32
-pub async fn get_svg_image(db_pool: actix_web::web::Data<deadpool_postgres::Pool>, path: actix_web::web::Path<i32>) -> impl actix_web::Responder {
+pub async fn get_svg_image(db_pool: actix_web::web::Data<deadpool_postgres::Pool>, path: actix_web::web::Path<i32>, req: actix_web::HttpRequest) -> impl actix_web::Responder {
     let webpage_id = path.into_inner();
 
-    println!("webpage_hit_counter/get_svg_image/{webpage_id}.svg");
-    let hit_count = crate::postgres_mod::select_count(db_pool, webpage_id).await.unwrap();
+    let now: chrono::DateTime<chrono::Utc> = chrono::Utc::now();
+    println!("{now} webpage_hit_counter/get_svg_image/{webpage_id}.svg");
+
+    // When I use preview in VSCode it makes hundreds of request to the server and
+    // this increments the counter enormously. I don't want that. I will check for Electron and avoid the increment.
+    let mut do_increment = true;
+    let user_agent = req.headers().get(actix_web::http::header::USER_AGENT);
+    if let Some(user_agent) = user_agent {
+        if let Ok(user_agent) = user_agent.to_str() {
+            if user_agent.contains("Electron") {
+                // this is a VSCode preview and does not increment the hit counter
+                do_increment = false;
+            }
+        }
+    }
+
+    let hit_count = crate::postgres_mod::select_count(db_pool, webpage_id, do_increment).await.unwrap();
 
     actix_web::HttpResponse::Ok()
         .append_header(actix_web::http::header::ContentType(mime::IMAGE_SVG))

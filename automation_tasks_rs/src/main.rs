@@ -342,7 +342,7 @@ fn task_commit_and_push(arg_2: Option<String>) {
     println!(
         r#"
     {YELLOW}After `cargo auto commit_and_push "message"`{RESET}
-{GREEN}cargo auto publish_to_crates_io{RESET}
+{GREEN}cargo auto publish_to_web{RESET}
 "#
     );
 }
@@ -374,9 +374,13 @@ fn task_publish_to_web() {
     {YELLOW}2. podman container (it takes more space){RESET}
 
     {YELLOW}STANDALONE EXECUTABLE{RESET}
-    {YELLOW}First stop the executable in Zellij or Screen terminal multiplexer.{RESET}
-{GREEN}cp /var/www/transfer_folder/webpage_hit_counter/webpage_hit_counter ~/bin/webpage_hit_counter{RESET}
-{GREEN}sudo chmod +x ~/bin/webpage_hit_counter{RESET}
+    {YELLOW}First stop the executable webpage_hit_counter in Zellij or Screen terminal multiplexer.{RESET}
+{GREEN}mkdir -p ~/bin/hit_counter_and_env{RESET}
+{GREEN}cp /var/www/transfer_folder/webpage_hit_counter/webpage_hit_counter ~/bin/hit_counter_and_env/webpage_hit_counter{RESET}
+{GREEN}cp /var/www/transfer_folder/webpage_hit_counter/.env ~/bin/hit_counter_and_env/.env{RESET}
+{GREEN}sudo chmod +x ~/bin/hit_counter_and_env/webpage_hit_counter{RESET}
+{GREEN}cd ~/bin/hit_counter_and_env{RESET}
+{GREEN}./webpage_hit_counter{RESET}
 
     {YELLOW}PODMAN CONTAINER{RESET}
     {YELLOW}Stop and remove the old pod for webpage_hit_counter{RESET}

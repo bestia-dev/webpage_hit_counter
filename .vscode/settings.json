@@ -23,6 +23,7 @@
         "bestia",
         "bestiadev",
         "buildah",
+        "chrono",
         "crev",
         "CRUSTDE",
         "DBNAME",
@@ -55,7 +56,8 @@
         "webserver",
         "xlink",
         "zcvf",
-        "zdravje"
+        "zdravje",
+        "Zellij"
     ],
     "livePreview.defaultPreviewPath": "/docs/index.html"
 }

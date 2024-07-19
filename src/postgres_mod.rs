@@ -1,9 +1,11 @@
 //! postgres_mod.rs
 
-pub async fn select_count(db_pool: actix_web::web::Data<deadpool_postgres::Pool>, webpage_id: i32) -> Result<i32, tokio_postgres::Error> {
+pub async fn select_count(db_pool: actix_web::web::Data<deadpool_postgres::Pool>, webpage_id: i32, do_increment: bool) -> Result<i32, tokio_postgres::Error> {
     let client: deadpool_postgres::Client = db_pool.get().await.unwrap();
 
-    client.query("update hit_counter set count=count+1 where webpage_id = $1", &[&webpage_id]).await?;
+    if do_increment {
+        client.query("update hit_counter set count=count+1 where webpage_id = $1", &[&webpage_id]).await?;
+    }
 
     // Now we can execute a simple statement that just returns its parameter.
     let rows = client.query("SELECT count from hit_counter where webpage_id = $1", &[&webpage_id]).await?;
