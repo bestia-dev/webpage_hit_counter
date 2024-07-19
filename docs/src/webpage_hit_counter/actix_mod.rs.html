@@ -105,6 +105,21 @@
 <a href="#55" id="55">55</a>
 <a href="#56" id="56">56</a>
 <a href="#57" id="57">57</a>
+<a href="#58" id="58">58</a>
+<a href="#59" id="59">59</a>
+<a href="#60" id="60">60</a>
+<a href="#61" id="61">61</a>
+<a href="#62" id="62">62</a>
+<a href="#63" id="63">63</a>
+<a href="#64" id="64">64</a>
+<a href="#65" id="65">65</a>
+<a href="#66" id="66">66</a>
+<a href="#67" id="67">67</a>
+<a href="#68" id="68">68</a>
+<a href="#69" id="69">69</a>
+<a href="#70" id="70">70</a>
+<a href="#71" id="71">71</a>
+<a href="#72" id="72">72</a>
 </pre>
         </div>
         <pre class="rust"><code><span class="comment">// webpage_hit_counter/src/hello_mod.rs
@@ -116,12 +131,26 @@
 /// extract path info from "/webpage_hit_counter/get_svg_image/{webpage_id}.svg" url
 /// {webpage_id} - deserializes to a i32
 </span><span class=
-"kw">pub async fn </span>get_svg_image(db_pool: actix_web::web::Data&lt;deadpool_postgres::Pool&gt;, path: actix_web::web::Path&lt;i32&gt;) -&gt; <span class=
-"kw">impl </span>actix_web::Responder {
+"kw">pub async fn </span>get_svg_image(db_pool: actix_web::web::Data&lt;deadpool_postgres::Pool&gt;, path: actix_web::web::Path&lt;i32&gt;, req: actix_web::HttpRequest) -&gt; <span class="kw">impl </span>actix_web::Responder {
     <span class="kw">let </span>webpage_id = path.into_inner();
 
-    <span class="macro">println!</span>(<span class="string">"webpage_hit_counter/get_svg_image/{webpage_id}.svg"</span>);
-    <span class="kw">let </span>hit_count = <span class="kw">crate</span>::postgres_mod::select_count(db_pool, webpage_id).<span class=
+    <span class="kw">let </span>now: chrono::DateTime&lt;chrono::Utc&gt; = chrono::Utc::now();
+    <span class="macro">println!</span>(<span class="string">"{now} webpage_hit_counter/get_svg_image/{webpage_id}.svg"</span>);
+
+    <span class="comment">// When I use preview in VSCode it makes hundreds of request to the server and
+    // this increments the counter enormously. I don't want that. I will check for Electron and avoid the increment.
+    </span><span class="kw">let </span><span class="kw-2">mut </span>do_increment = <span class="bool-val">true</span>;
+    <span class="kw">let </span>user_agent = req.headers().get(actix_web::http::header::USER_AGENT);
+    <span class="kw">if let </span><span class="prelude-val">Some</span>(user_agent) = user_agent {
+        <span class="kw">if let </span><span class="prelude-val">Ok</span>(user_agent) = user_agent.to_str() {
+            <span class="kw">if </span>user_agent.contains(<span class="string">"Electron"</span>) {
+                <span class="comment">// this is a VSCode preview and does not increment the hit counter
+                </span>do_increment = <span class="bool-val">false</span>;
+            }
+        }
+    }
+
+    <span class="kw">let </span>hit_count = <span class="kw">crate</span>::postgres_mod::select_count(db_pool, webpage_id, do_increment).<span class=
 "kw">await</span>.unwrap();
 
     actix_web::HttpResponse::Ok()

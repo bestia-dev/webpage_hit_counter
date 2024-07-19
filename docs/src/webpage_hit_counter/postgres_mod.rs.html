@@ -66,16 +66,21 @@
 <a href="#16" id="16">16</a>
 <a href="#17" id="17">17</a>
 <a href="#18" id="18">18</a>
+<a href="#19" id="19">19</a>
+<a href="#20" id="20">20</a>
 </pre>
         </div>
         <pre class="rust"><code><span class="doccomment">//! postgres_mod.rs
 
-</span><span class="kw">pub async fn </span>select_count(db_pool: actix_web::web::Data&lt;deadpool_postgres::Pool&gt;, webpage_id: i32) -&gt; <span class=
+</span><span class=
+"kw">pub async fn </span>select_count(db_pool: actix_web::web::Data&lt;deadpool_postgres::Pool&gt;, webpage_id: i32, do_increment: bool) -&gt; <span class=
 "prelude-ty">Result</span>&lt;i32, tokio_postgres::Error&gt; {
     <span class="kw">let </span>client: deadpool_postgres::Client = db_pool.get().<span class="kw">await</span>.unwrap();
 
-    client.query(<span class="string">"update hit_counter set count=count+1 where webpage_id = $1"</span>, <span class="kw-2">&</span>[<span class=
+    <span class="kw">if </span>do_increment {
+        client.query(<span class="string">"update hit_counter set count=count+1 where webpage_id = $1"</span>, <span class="kw-2">&</span>[<span class=
 "kw-2">&</span>webpage_id]).<span class="kw">await</span><span class="question-mark">?</span>;
+    }
 
     <span class="comment">// Now we can execute a simple statement that just returns its parameter.
     </span><span class="kw">let </span>rows = client.query(<span class="string">"SELECT count from hit_counter where webpage_id = $1"</span>, <span class=
