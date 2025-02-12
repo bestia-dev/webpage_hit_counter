@@ -7,13 +7,13 @@
 **05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)**  
 ***version: 1.0.66 date: 2024-07-19 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/webpage_hit_counter)***
 
- ![webserver](https://img.shields.io/badge/webserver-orange)
- ![database](https://img.shields.io/badge/database-orange)
-
-[//]: # (auto_cargo_toml_to_md end)
-
  ![maintained](https://img.shields.io/badge/maintained-green)
  ![ready_for_use](https://img.shields.io/badge/ready_for_use-green)
+ ![webserver](https://img.shields.io/badge/webserver-orange)
+ ![database](https://img.shields.io/badge/database-orange)
+ ![youtube](https://img.shields.io/badge/youtube-orange)
+
+[//]: # (auto_cargo_toml_to_md end)
 
 [//]: # (auto_lines_of_code start)
 [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-159-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
