@@ -22,8 +22,8 @@
 <a href=#22 id=22 data-nosnippet>22</a>    <span class="kw">let </span>user_agent = req.headers().get(actix_web::http::header::USER_AGENT);
 <a href=#23 id=23 data-nosnippet>23</a>    <span class="kw">if let </span><span class="prelude-val">Some</span>(user_agent) = user_agent {
 <a href=#24 id=24 data-nosnippet>24</a>        <span class="kw">if let </span><span class="prelude-val">Ok</span>(user_agent) = user_agent.to_str() {
-<a href=#25 id=25 data-nosnippet>25</a>            <span class="macro">println!</span>(<span class="string">"user_agent: {}"</span>, user_agent);
-<a href=#26 id=26 data-nosnippet>26</a>            <span class="kw">if </span>user_agent.contains(<span class="string">"Electron"</span>) {
+<a href=#25 id=25 data-nosnippet>25</a>            <span class="comment">// println!("user_agent: {}", user_agent);
+<a href=#26 id=26 data-nosnippet>26</a>            </span><span class="kw">if </span>user_agent.contains(<span class="string">"Electron"</span>) {
 <a href=#27 id=27 data-nosnippet>27</a>                <span class="comment">// this is a VSCode preview and does not increment the hit counter
 <a href=#28 id=28 data-nosnippet>28</a>                </span>do_increment = <span class="bool-val">false</span>;
 <a href=#29 id=29 data-nosnippet>29</a>            }
