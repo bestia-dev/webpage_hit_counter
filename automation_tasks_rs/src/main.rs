@@ -3,6 +3,7 @@
 // region: library and modules with basic automation tasks
 
 mod build_cli_bin_mod;
+mod build_cli_bin_musl_mod;
 mod build_cli_bin_win_mod;
 mod build_lib_mod;
 mod build_wasm_mod;
@@ -12,7 +13,6 @@ mod generic_functions_mod;
 mod tasks_mod;
 
 pub use cargo_auto_lib as cl;
-use cargo_auto_lib::ShellCommandLimitedDoubleQuotesSanitizerTrait;
 #[allow(unused_imports)]
 use crossplatform_path::CrossPathBuf;
 
@@ -113,9 +113,9 @@ fn print_help() -> anyhow::Result<()> {
   {YELLOW}You can type the passphrase of the private key for every usee. This is pretty secure.{RESET}
   {YELLOW}Somewhat less secure (but more comfortable) way is to store the private key in ssh-agent.{RESET}
 {GREEN}cargo auto publish_to_web{RESET} - {YELLOW}publish to my google VM, git tag{RESET}
-    {YELLOW}You need the SSH private key for publishing.{RESET}
-    {YELLOW}You can type the SSH passphrase of the private key every time. This is pretty secure.{RESET}
-    {YELLOW}Somewhat less secure (but more comfortable) way is to store the private key in ssh-agent.{RESET}
+  {YELLOW}You need the SSH private key for publishing.{RESET}
+  {YELLOW}You can type the SSH passphrase of the private key every time. This is pretty secure.{RESET}
+  {YELLOW}Somewhat less secure (but more comfortable) way is to store the private key in ssh-agent.{RESET}
 {GREEN}cargo auto github_new_release{RESET} - {YELLOW}creates new release on GitHub{RESET}
   {YELLOW}For the GitHub API the task needs the Access secret token from OAuth2 device workflow.{RESET}
   {YELLOW}The secret token will be stored in a file encrypted with your SSH private key.{RESET}
@@ -143,7 +143,7 @@ fn print_examples_cmd() {
     */
 }
 
-/// sub-command for bash auto-completion of `cargo auto` using the crate `dev_bestia_cargo_completion`
+/// Sub-command for bash auto-completion of `cargo auto` using the crate `dev_bestia_cargo_completion`.
 fn completion() -> anyhow::Result<()> {
     let args: Vec<String> = std::env::args().collect();
     let word_being_completed = args[2].as_str();
@@ -178,15 +178,15 @@ fn completion() -> anyhow::Result<()> {
 
 /// cargo build
 fn task_build() -> anyhow::Result<()> {
-    let cargo_toml = crate::build_cli_bin_mod::task_build()?;
+    let cargo_toml = crate::build_cli_bin_musl_mod::task_build()?;
     println!(
         r#"
-    {YELLOW}After `cargo auto build`, run the compiled binary, examples and/or tests{RESET}
-    {YELLOW}The postgres server and database must be accessible on the port 5432 on localhost{RESET}
+  {YELLOW}After `cargo auto build`, run the compiled binary, examples and/or tests{RESET}
+  {YELLOW}The postgres server and database must be accessible on the port 5432 on localhost{RESET}
 {GREEN}./target/x86_64-unknown-linux-musl/debug/{package_name}{RESET}
-    {YELLOW}In the browser or in curl open{RESET}
+  {YELLOW}In the browser or in curl open{RESET}
 {GREEN}http://localhost:8011/webpage_hit_counter/get_svg_image/555555.svg{RESET}
-    {YELLOW}if {package_name} ok then{RESET}
+  {YELLOW}if {package_name} ok then{RESET}
 {GREEN}cargo auto release{RESET}
 "#,
         package_name = cargo_toml.package_name(),
@@ -197,22 +197,12 @@ fn task_build() -> anyhow::Result<()> {
 
 /// cargo build --release
 fn task_release() -> anyhow::Result<()> {
-    let cargo_toml = cl::CargoToml::read()?;
-    cl::auto_version_increment_semver_or_date()?;
-    cl::auto_cargo_toml_to_md()?;
-    cl::auto_lines_of_code("")?;
-
-    cl::run_shell_command_static("cargo fmt")?;
-    cl::run_shell_command_static("cargo clippy --no-deps")?;
-    cl::run_shell_command_static("cargo build --release --target x86_64-unknown-linux-musl")?;
-
-    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"strip "target/x86_64-unknown-linux-musl/release/{package_name}" "#)?
-        .arg("{package_name}", &cargo_toml.package_name())?
-        .run()?;
+    let cargo_toml = crate::build_cli_bin_musl_mod::task_release()?;
 
     println!(
         r#"
   {YELLOW}After `cargo auto release`, run the compiled binary, examples and/or tests{RESET}
+{GREEN}alias {package_name}=target/release/{package_name}{RESET}
   {YELLOW}The postgres server and database must be accessible on the port 5432 on localhost{RESET}
 {GREEN}./target/x86_64-unknown-linux-musl/release/{package_name}{RESET}
   {YELLOW}In the browser or in curl open{RESET}
@@ -268,7 +258,7 @@ fn task_commit_and_push(arg_2: Option<String>) -> anyhow::Result<()> {
     Ok(())
 }
 
-/// publish to web for podman container and git tag
+/// Publish to web for podman container and git tag.
 fn task_publish_to_web() -> anyhow::Result<()> {
     println!(
         r#"

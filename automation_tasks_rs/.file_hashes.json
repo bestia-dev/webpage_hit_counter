@@ -6,7 +6,7 @@
     },
     {
       "filename": "automation_tasks_rs/target/debug/automation_tasks_rs",
-      "filehash": "9841a00c689c90609fc184f4f89c39328394e78171121d2239e78e91fb3f9a72"
+      "filehash": "435470180e1c5395e7ebcbbefa98885015d07f2df69c7b9219e819cbefa699fa"
     },
     {
       "filename": "automation_tasks_rs/src/build_cli_bin_mod.rs",
@@ -34,15 +34,11 @@
     },
     {
       "filename": "automation_tasks_rs/src/main.rs",
-      "filehash": "d5d479e88a3f3145c9de6a21a509c5d6a28febc4367338f38ad3d09892e09dc7"
+      "filehash": "b6118a742308aeaa8398d511d140b011868dc17306b82777fcf0421012f352fe"
     },
     {
       "filename": "automation_tasks_rs/src/build_lib_mod.rs",
       "filehash": "031613bb4286bf3a1dbe3e2d8919d22c4e5919082a357d2c960ede24ee812fba"
-    },
-    {
-      "filename": "automation_tasks_rs/src/main_new.rs",
-      "filehash": "89699f976ff64d566e6404e940f17cf8238364c162a857e8a63b386f09e072de"
     },
     {
       "filename": "automation_tasks_rs/src/build_wasm_mod.rs",
@@ -55,6 +51,10 @@
     {
       "filename": "automation_tasks_rs/src/tasks_mod.rs",
       "filehash": "6d74c0aadeb93b1b142f128a67663e7c7811cbd102c31fafeafa76ef561426b2"
+    },
+    {
+      "filename": "automation_tasks_rs/src/build_cli_bin_musl_mod.rs",
+      "filehash": "2ef20421d35f84385d9b1987c7f105fcbf26755840f383c396e6ade6576bf9f0"
     },
     {
       "filename": "automation_tasks_rs/src/cargo_auto_github_api_mod.rs",

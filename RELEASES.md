@@ -10,6 +10,8 @@ The TODO section is part of the [README.md](https://github.com/bestia-dev/webpag
 
 ## Unreleased
 
+- musl mod
+
 ## Version 1.0.69 (2025-11-01)
 
 - user_agent
