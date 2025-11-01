@@ -44,7 +44,8 @@ printf "\033[0;33m    Get random number from openssl: ${positiveDecNum} \033[0m\
 printf "\033[0;33m    Use this number for the webpage_hit_counter badge:  \033[0m\n"
 printf "\033[0;32m![$1](https://bestia.dev/webpage_hit_counter/get_svg_image/${positiveDecNum}.svg) \033[0m\n"
 
-ssh luciano_bestia@bestia.dev \
+# bestia.dev ip without Cloudflare is 35.199.190.85
+ssh luciano_bestia@35.199.190.85 \
 " \
 export PGPASSWORD=\"$password\"; \
 psql -h localhost -p 5432 -U admin -d webpage_hit_counter -c \

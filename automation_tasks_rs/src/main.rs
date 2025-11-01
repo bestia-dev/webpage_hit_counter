@@ -283,12 +283,12 @@ fn task_publish_to_web() -> anyhow::Result<()> {
     let _tag_name_version = cl::git_tag_sync_check_create_push(&version)?;
 
     // rsync upload files to the existing remote transfer_folder
-    cl::run_shell_command_static("rsync -e ssh -a --info=progress2 ./target/x86_64-unknown-linux-musl/release/webpage_hit_counter luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/")?;
+    cl::run_shell_command_static("rsync -e ssh -a --info=progress2 ./target/x86_64-unknown-linux-musl/release/webpage_hit_counter luciano_bestia@35.199.190.85:/var/www/transfer_folder/webpage_hit_counter/")?;
     cl::run_shell_command_static(
-        "rsync -e ssh -a --info=progress2 ./.env luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/",
+        "rsync -e ssh -a --info=progress2 ./.env luciano_bestia@35.199.190.85:/var/www/transfer_folder/webpage_hit_counter/",
     )?;
-    cl::run_shell_command_static("rsync -e ssh -a --info=progress2 ./deploy/buildah_image_webpage_hit_counter.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/")?;
-    cl::run_shell_command_static("rsync -e ssh -a --info=progress2 ./deploy/webpage_hit_counter_pod_create.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/")?;
+    cl::run_shell_command_static("rsync -e ssh -a --info=progress2 ./deploy/buildah_image_webpage_hit_counter.sh luciano_bestia@35.199.190.85:/var/www/transfer_folder/webpage_hit_counter/")?;
+    cl::run_shell_command_static("rsync -e ssh -a --info=progress2 ./deploy/webpage_hit_counter_pod_create.sh luciano_bestia@35.199.190.85:/var/www/transfer_folder/webpage_hit_counter/")?;
 
     println!(
         r#"

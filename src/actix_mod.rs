@@ -22,7 +22,7 @@ pub async fn get_svg_image(
     let user_agent = req.headers().get(actix_web::http::header::USER_AGENT);
     if let Some(user_agent) = user_agent {
         if let Ok(user_agent) = user_agent.to_str() {
-            println!("user_agent: {}", user_agent);
+            // println!("user_agent: {}", user_agent);
             if user_agent.contains("Electron") {
                 // this is a VSCode preview and does not increment the hit counter
                 do_increment = false;

@@ -6,7 +6,7 @@
     },
     {
       "filename": "automation_tasks_rs/target/debug/automation_tasks_rs",
-      "filehash": "32718bc8fb8c01602508c5b1dbdb753bd1d636771792f299644bcb26dea92bb1"
+      "filehash": "9841a00c689c90609fc184f4f89c39328394e78171121d2239e78e91fb3f9a72"
     },
     {
       "filename": "automation_tasks_rs/src/build_cli_bin_mod.rs",
@@ -34,7 +34,7 @@
     },
     {
       "filename": "automation_tasks_rs/src/main.rs",
-      "filehash": "b84f7068b69e89e77df56c27d703561397c4d7a347d841b238a8cd7f9eb02681"
+      "filehash": "d5d479e88a3f3145c9de6a21a509c5d6a28febc4367338f38ad3d09892e09dc7"
     },
     {
       "filename": "automation_tasks_rs/src/build_lib_mod.rs",
