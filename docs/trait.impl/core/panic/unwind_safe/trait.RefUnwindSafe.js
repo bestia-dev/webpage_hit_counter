@@ -1,3 +1,9 @@
-(function() {var implementors = {
-"webpage_hit_counter":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.79.0/core/panic/unwind_safe/trait.RefUnwindSafe.html\" title=\"trait core::panic::unwind_safe::RefUnwindSafe\">RefUnwindSafe</a> for <a class=\"enum\" href=\"webpage_hit_counter/enum.LibraryError.html\" title=\"enum webpage_hit_counter::LibraryError\">LibraryError</a>",1,["webpage_hit_counter::LibraryError"]]]
-};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
+(function() {
+    var implementors = Object.fromEntries([["webpage_hit_counter",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.90.0/core/panic/unwind_safe/trait.RefUnwindSafe.html\" title=\"trait core::panic::unwind_safe::RefUnwindSafe\">RefUnwindSafe</a> for <a class=\"enum\" href=\"webpage_hit_counter/enum.LibraryError.html\" title=\"enum webpage_hit_counter::LibraryError\">LibraryError</a>",1,["webpage_hit_counter::LibraryError"]]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":57,"fragment_lengths":[397]}

@@ -1,128 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="rustdoc">
-  <meta name="description" content="webpage_hit_counter">
-  <title>webpage_hit_counter - Rust</title>
-  <script>
-  if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/${f}">`).join(""))
-  </script>
-  <link rel="stylesheet" href="../static.files/normalize-76eba96aa4d2e634.css">
-  <link rel="stylesheet" href="../static.files/rustdoc-081576b923113409.css">
-  <meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="webpage_hit_counter" data-themes=""
-  data-resource-suffix="" data-rustdoc-version="1.79.0 (129f3b996 2024-06-10)" data-channel="1.79.0" data-search-js="search-bf21c90c8c1d92b1.js"
-  data-settings-js="settings-4313503d2e1961c2.js">
-  <script src="../static.files/storage-e32f0c247825364d.js"></script>
-  <script defer src="../crates.js"></script>
-  <script defer src="../static.files/main-20a3ad099b048cf2.js"></script><noscript>
-  <link rel="stylesheet" href="../static.files/noscript-09095024cf37855e.css"></noscript>
-  <link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-422f7d1d52889060.png">
-  <link rel="icon" type="image/svg+xml" href="../static.files/favicon-2c020d218678b618.svg">
-</head>
-<body class="rustdoc mod crate">
-  <!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
-  <nav class="mobile-topbar"></nav>
-  <nav class="sidebar">
-    <div class="sidebar-crate">
-      <h2><a href="../webpage_hit_counter/index.html">webpage_hit_counter</a><span class="version">1.0.66</span></h2>
-    </div>
-    <div class="sidebar-elems">
-      <ul class="block">
-        <li>
-          <a id="all-types" href="all.html">All Items</a>
-        </li>
-      </ul>
-      <section>
-        <ul class="block">
-          <li>
-            <a href="#modules">Modules</a>
-          </li>
-          <li>
-            <a href="#enums">Enums</a>
-          </li>
-          <li>
-            <a href="#constants">Constants</a>
-          </li>
-          <li>
-            <a href="#functions">Functions</a>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </nav>
-  <div class="sidebar-resizer"></div>
-  <main>
-    <div class="width-limiter">
-      <nav class="sub">
-        <form class="search-form">
-          <div id="sidebar-button" tabindex="-1">
-            <a href="../webpage_hit_counter/all.html" title="show sidebar"></a>
-          </div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder=
-          "Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search">
-          <div id="help-button" tabindex="-1">
-            <a href="../help.html" title="help">?</a>
-          </div>
-          <div id="settings-menu" tabindex="-1">
-            <a href="../settings.html" title="settings">Settings</a>
-          </div>
-        </form>
-      </nav>
-      <section id="main-content" class="content">
-        <div class="main-heading">
-          <h1>Crate <a class="mod" href="#">webpage_hit_counter</a><button id="copy-path" title="Copy item path to clipboard">Copy item
-          path</button></h1><span class="out-of-band"><a class="src" href="../src/webpage_hit_counter/lib.rs.html#3-44">source</a> · <button id=
-          "toggle-all-docs" title="collapse all docs">[<span>−</span>]</button></span>
-        </div>
-        <details class="toggle top-doc" open="">
-          <summary class="hideme">
-            <span>Expand description</span>
-          </summary>
-          <div class="docblock">
-            <h2 id="webpage_hit_counter"><a class="doc-anchor" href="#webpage_hit_counter">§</a>webpage_hit_counter</h2>
-            <p><strong>05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)</strong><br>
-            <em><strong>version: 1.0.66 date: 2024-07-19 author: <a href="https://bestia.dev">bestia.dev</a> repository: <a href=
-            "https://github.com/bestia-dev/webpage_hit_counter">GitHub</a></strong></em></p>
-            <p><img src="https://img.shields.io/badge/webserver-orange" alt="webserver"> <img src="https://img.shields.io/badge/database-orange" alt=
-            "database"></p>
-            <p><img src="https://img.shields.io/badge/maintained-green" alt="maintained"> <img src="https://img.shields.io/badge/ready_for_use-green" alt=
-            "ready_for_use"></p>
-            <p><a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src="https://img.shields.io/badge/Lines_in_Rust-159-green.svg" alt=
-            "Lines in Rust code"></a> <a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src=
-            "https://img.shields.io/badge/Lines_in_Doc_comments-9-blue.svg" alt="Lines in Doc comments"></a> <a href=
-            "https://github.com/bestia-dev/webpage_hit_counter/"><img src="https://img.shields.io/badge/Lines_in_comments-29-purple.svg" alt=
-            "Lines in Comments"></a> <a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src=
-            "https://img.shields.io/badge/Lines_in_examples-19-yellow.svg" alt="Lines in examples"></a> <a href=
-            "https://github.com/bestia-dev/webpage_hit_counter/"><img src="https://img.shields.io/badge/Lines_in_tests-19-orange.svg" alt=
-            "Lines in tests"></a></p>
-            <p><a href="https://github.com/bestia-dev/webpage_hit_counter/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt=
-            "License"></a> <a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src=
-            "https://github.com/bestia-dev/webpage_hit_counter/workflows/rust_fmt_auto_build_test/badge.svg" alt="Rust"></a> <img src=
-            "https://bestia.dev/webpage_hit_counter/get_svg_image/261590595.svg" alt="webpage_hit_counter"></p>
-            <p>Hashtags: #rustlang #tutorial #pwa #webserver #actix #database #postgres<br>
-            My projects on GitHub are more like a tutorial than a finished product: <a href="https://github.com/bestia-dev/tutorials_rust_wasm">bestia-dev
-            tutorials</a>.</p>
-            <h3 id="intro"><a class="doc-anchor" href="#intro">§</a>Intro</h3>
-            <p>Welcome to bestia.dev !<br>
-            Learning Rust and Wasm programming and having fun.<br>
-            I just love programming !</p>
-            <p>This is my fifth video tutorial about programming in Rust.<br>
-            In this tutorial I will show step by step how to create a simple web server with a database.<br>
-            I am using the Rust development environment inside a docker container we created in the first two video tutorials. You can find them in my youtube
-            channel :“bestia dev Tutorials for Rust programming language”. Just type “bestia dev” in the youtube search box.</p>
-            <p>This project has also a youtube video tutorial. Watch it:</p><!-- markdownlint-disable MD033 -->
-            <p><a href="https://bestia.dev/youtube/webpage_hit_counter.html"><img src="https://bestia.dev/youtube/webpage_hit_counter.jpg" width=
-            "400px"></a></p><!-- markdownlint-enable MD033 -->
-            <h3 id="webpage-hit-counter"><a class="doc-anchor" href="#webpage-hit-counter">§</a>webpage hit counter</h3>
-            <p>Today’s project is a “webpage hit counter”. I want to see the number of visitors to my webpages. There are many different options, but the
-            simplest one is an old-school webpage hit counter.<br>
-            <a href="https://en.wikipedia.org/wiki/Web_counter">https://en.wikipedia.org/wiki/Web_counter</a> This is nothing more then an image on the page
-            that is sourced from a web application. This web application can then count the hits and dynamically produce a picture with the number of hits. We
-            are lucky that images (for now) don’t have limitation for cross-domain or cross-origin. I will not really count unique visitors, because that is
-            complicated. I will count simply every hit.</p>
-            <div class="example-wrap">
-              <pre class="language-plantuml"><code>@startuml
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="webpage_hit_counter"><title>webpage_hit_counter - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../static.files/rustdoc-aa0817cf.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="webpage_hit_counter" data-themes="" data-resource-suffix="" data-rustdoc-version="1.90.0 (1159e78c4 2025-09-14)" data-channel="1.90.0" data-search-js="search-fa3e91e5.js" data-settings-js="settings-5514c975.js" ><script src="../static.files/storage-68b7e25d.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-eebb9057.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-32bb7600.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-044be391.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../webpage_hit_counter/index.html">webpage_<wbr>hit_<wbr>counter</a><span class="version">1.0.68</span></h2></div><div class="sidebar-elems"><ul class="block"><li><a id="all-types" href="all.html">All Items</a></li></ul><section id="rustdoc-toc"><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#webpage_hit_counter" title="webpage_hit_counter">webpage_hit_counter</a><ul><li><a href="#intro" title="Intro">Intro</a></li><li><a href="#webpage-hit-counter" title="webpage hit counter">webpage hit counter</a></li><li><a href="#project-for-tutorial" title="Project for tutorial">Project for tutorial</a></li><li><a href="#postgres-in-a-container" title="Postgres in a container">Postgres in a container</a></li><li><a href="#pgadmin-create-database-and-tables" title="pgAdmin create database and tables">pgAdmin create database and tables</a></li><li><a href="#template-project-with-cargo-auto-new_cli" title="Template project with cargo auto new_cli">Template project with cargo auto new_cli</a></li><li><a href="#actix-web-server" title="Actix web server">Actix web server</a></li><li><a href="#new-route" title="new route">new route</a></li><li><a href="#data-in-the-database" title="data in the database">data in the database</a></li><li><a href="#postgres-and-rust" title="Postgres and Rust">Postgres and Rust</a></li><li><a href="#connection-pool" title="connection pool">connection pool</a></li><li><a href="#parameter" title="parameter">parameter</a></li><li><a href="#increment" title="increment">increment</a></li><li><a href="#how-to-use-it" title="how to use it">how to use it</a></li><li><a href="#outro" title="Outro">Outro</a></li><li><a href="#adding-new-webpages-into-the-database" title="Adding new webpages into the database">Adding new webpages into the database</a></li><li><a href="#alpine-and-musl" title="Alpine and musl">Alpine and musl</a></li><li><a href="#deploying_rust_server_and_database" title="deploying_rust_server_and_database">deploying_rust_server_and_database</a></li><li><a href="#cargo-crev-reviews-and-advisory" title="cargo crev reviews and advisory">cargo crev reviews and advisory</a></li><li><a href="#open-source-and-free-as-a-beer" title="Open-source and free as a beer">Open-source and free as a beer</a></li></ul></li></ul><h3><a href="#modules">Crate Items</a></h3><ul class="block"><li><a href="#modules" title="Modules">Modules</a></li><li><a href="#enums" title="Enums">Enums</a></li><li><a href="#constants" title="Constants">Constants</a></li><li><a href="#functions" title="Functions">Functions</a></li></ul></section><div id="rustdoc-modnav"></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1>Crate <span>webpage_hit_counter</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../src/webpage_hit_counter/lib.rs.html#3-44">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><!-- markdownlint-disable MD041 -->
+<h2 id="webpage_hit_counter"><a class="doc-anchor" href="#webpage_hit_counter">§</a>webpage_hit_counter</h2>
+<p><strong>05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)</strong><br />
+<em><strong>version: 1.0.68 date: 2025-11-01 author: <a href="https://bestia.dev">bestia.dev</a> repository: <a href="https://github.com/bestia-dev/webpage_hit_counter">GitHub</a></strong></em></p>
+<p><img src="https://img.shields.io/badge/webserver-orange" alt="webserver" />
+<img src="https://img.shields.io/badge/database-orange" alt="database" /></p>
+<p><a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src="https://img.shields.io/badge/Lines_in_Rust-171-green.svg" alt="Lines in Rust code" /></a>
+<a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src="https://img.shields.io/badge/Lines_in_Doc_comments-9-blue.svg" alt="Lines in Doc comments" /></a>
+<a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src="https://img.shields.io/badge/Lines_in_comments-29-purple.svg" alt="Lines in Comments" /></a>
+<a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src="https://img.shields.io/badge/Lines_in_examples-19-yellow.svg" alt="Lines in examples" /></a>
+<a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src="https://img.shields.io/badge/Lines_in_tests-19-orange.svg" alt="Lines in tests" /></a></p>
+<p><a href="https://github.com/bestia-dev/webpage_hit_counter/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" /></a>
+<a href="https://github.com/bestia-dev/webpage_hit_counter/"><img src="https://github.com/bestia-dev/webpage_hit_counter/workflows/rust_fmt_auto_build_test/badge.svg" alt="Rust" /></a>
+<img src="https://bestia.dev/webpage_hit_counter/get_svg_image/261590595.svg" alt="webpage_hit_counter" /></p>
+<p>Hashtags: #rustlang #tutorial #pwa #webserver #actix #database #postgres<br />
+My projects on GitHub are more like a tutorial than a finished product: <a href="https://github.com/bestia-dev/tutorials_rust_wasm">bestia-dev tutorials</a>.</p>
+<h3 id="intro"><a class="doc-anchor" href="#intro">§</a>Intro</h3>
+<p>Welcome to bestia.dev !<br />
+Learning Rust and Wasm programming and having fun.<br />
+I just love  programming !</p>
+<p>This is my fifth video tutorial about programming in Rust.<br />
+In this tutorial I will show step by step how to create a simple web server with a database.<br />
+I am using the Rust development environment inside a docker container we created in the first two video tutorials. You can find them in my youtube channel :“bestia dev Tutorials for Rust programming language”. Just type “bestia dev” in the youtube search box.</p>
+<p>This project has also a youtube video tutorial. Watch it:</p>
+<!-- markdownlint-disable MD033 -->
+<p><a href="https://bestia.dev/youtube/webpage_hit_counter.html"><img src="https://bestia.dev/youtube/webpage_hit_counter.jpg" alt="webpage_hit_counter" width="400px"></a></p>
+<!-- markdownlint-enable MD033 -->
+<h3 id="webpage-hit-counter"><a class="doc-anchor" href="#webpage-hit-counter">§</a>webpage hit counter</h3>
+<p>Today’s project is a “webpage hit counter”.
+I want to see the number of visitors to my webpages. There are many different options, but the simplest one is an old-school webpage hit counter.<br />
+<a href="https://en.wikipedia.org/wiki/Web_counter">https://en.wikipedia.org/wiki/Web_counter</a>
+This is nothing more then an image on the page that is sourced from a web application. This web application can then count the hits and dynamically produce a picture with the number of hits. We are lucky that images (for now) don’t have limitation for cross-domain or cross-origin. I will not really count unique visitors, because that is complicated. I will count simply every hit.</p>
+<div class="example-wrap"><pre class="language-plantuml"><code>@startuml
 browser --&gt; web_server: get html page
 web_server --&gt; browser : response html page
 
@@ -130,260 +38,155 @@ browser --&gt; webpage_hit_counter: get image
 webpage_hit_counter --&gt; database : increment count
 database --&gt; webpage_hit_counter : new hit count
 webpage_hit_counter --&gt; browser : response image with count
-@enduml
-</code></pre>
-            </div>
-            <h3 id="project-for-tutorial"><a class="doc-anchor" href="#project-for-tutorial">§</a>Project for tutorial</h3>
-            <p>This is a perfect simple example how to use a Web server and a database in Rust.<br>
-            I choose the crate Actix-web for my web server, because it looks very popular among Rustaceans. I don’t know if other Rust web servers are better
-            or worse. I need something really super simple and I don’t want to complicate analyzing every existing web-server crate.<br>
-            <a href="https://actix.rs/">https://actix.rs/</a><br>
-            I choose PostgreSQL or Postgres as my preferred database because I have a long history with MSSQL and they look fairly similar. I also heard a lot
-            of good opinions about Postgres.<br>
-            <a href="https://www.postgresql.org/">https://www.postgresql.org/</a></p>
-            <h3 id="postgres-in-a-container"><a class="doc-anchor" href="#postgres-in-a-container">§</a>Postgres in a container</h3>
-            <p>My Rust development environment is a podman pod with 2 containers. I will add to that pod a new container for the Postgres server and one with
-            the pgAdmin management tool.<br>
-            I enhanced the script crustde_pod_create.sh from my project crustde_cnt_img_pod and started the new pod. A new port 9876 will be used for
-            pgAdmin.<br>
-            I will now force the reboot of WSL to demonstrate how to restart the pod. In powershell run as administrator I use “Get-Service LxssManager |
-            Restart-Service”. After reboot I need a small bash script to restart the pod, because of the peculiarities of WSL. <a href=
-            "https://github.com/CRUSTDE-ContainerizedRustDevEnv/crustde_cnt_img_pod">https://github.com/CRUSTDE-ContainerizedRustDevEnv/crustde_cnt_img_pod</a></p>
-            <h3 id="pgadmin-create-database-and-tables"><a class="doc-anchor" href="#pgadmin-create-database-and-tables">§</a>pgAdmin create database and
-            tables</h3>
-            <p>Now we can open the pgAdmin management tool inside a browser on the address localhost 9 8 7 6.<br>
-            For this tutorial we will not deep dive into database security. We will use just the admin user role. This is a big no no in production.<br>
-            First create a new database named webpage_hit_counter.<br>
-            The first table will be a list of webpages with their unique integer id.</p>
-            <p>A table is made of columns and rows or synonymous of fields and records.</p>
-            <p>The second table will have a foreign key to the webpage table and the number of hits. The serial datatype automatically increases on every
-            insert command and is therefor unique.<br>
-            I forgot to assign the primary key to the tables. We will add the foreign key to define the relation between the tables. And we will set the
-            columns to not null.<br>
-            That is all for now about the Postgres database. The data will be inserted from the Rust code.</p>
-            <h3 id="template-project-with-cargo-auto-new_cli"><a class="doc-anchor" href="#template-project-with-cargo-auto-new_cli">§</a>Template project with
-            cargo auto new_cli</h3>
-            <p>We will create a template CLI project using “cargo auto new_cli”. Open VSCode, press F1, remote-ssh connect to host, enter passphrase. In the
-            rustprojects directory create a new template Rust project named webpage_hit_counter. Open it in a new VSCode window. Build it with “cargo auto
-            build” and run it. Just to check that everything is ok.<br>
-            Eureka, it works!</p>
-            <h3 id="actix-web-server"><a class="doc-anchor" href="#actix-web-server">§</a>Actix web server</h3>
-            <p>Let begin our discovery of actix-web with a simple Hello World example. Classic getting started stuff! <a href=
-            "https://actix.rs/docs/getting-started/">https://actix.rs/docs/getting-started/</a><br>
-            I will comment or delete the code I don’t need and replace it with the code from the example. I use the VSCode extension “crates from Seray Uzgur”
-            to check the last version of the crate and quickly open the documentation.<br>
-            <a href=
-            "https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates">https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates</a></p>
-            <p>Let rename the module and copy the code from the example. I like to leave some parts of the template code for future use.<br>
-            Functions that are used outside the module must be public. Lib.rs has a big segment of doc-comments. We can fold it quickly with the fold marker.
-            We need to rename the module and allow use of all functions from it. The main function is copied into the bin main.rs file. Now we copy the use
-            statement. We can delete the unused objects. The bin main.rs is a separate part of the project and we must write a use statement for the library
-            project. In the explorer side panel we can see in yellow the modules that have warning and in red the ones with errors. We can clean this problems
-            easily. With F1 we got all the VSCode functions under our fingertips. I need to Comment the code. Sometimes typing is faster than using the mouse.
-            We can now build the project with cargo auto build. In VSCode we have to open the port 8011, so that we can access the container from our browser.
-            Run the compiled code without any parameters. Now open the browser on localhost port 8011.<br>
-            Hello world! It works. Let’s try with another function. The routing for Hey calls the functions manual_hello and writes “Hey there!”.</p>
-            <h3 id="new-route"><a class="doc-anchor" href="#new-route">§</a>new route</h3>
-            <p>We will now modify the code for our example. We need only one route named webpage_hit_counter/get_svg_image. It will call the function with the
-            same name.<br>
-            I like to use Rust raw string, because I can copy paste literal text without modifying it. We will return a svg file for the badge. Svg is simple
-            xml text, nothing complicated. Let’s build the project and open it in the browser. We need to add the MIME type so the browser can render the svg
-            instead of showing the text. We need a new dependency crate for mime. There is need for a few modification to main and the automation tasks.
-            Nothing big. We can now build the project and open the URL in the browser.<br>
-            Hooray! We can now see the SVG image for the badge with the word “Hits” and the number 14. Pretty neat!</p>
-            <h3 id="data-in-the-database"><a class="doc-anchor" href="#data-in-the-database">§</a>data in the database</h3>
-            <p>Now we need to insert some data into the database. I will use the pgAdmin management tool. There is a graphical way to write data, but I will
-            use SQL statements. Sooner or later we need to write SQL statements. And they are not so difficult. The basics is only 4 words: SELECt, UPDATE,
-            INSERT and DELETE. In this table the id will be a random number. Our first row or record is for testing purposes. Into the second table we don’t
-            need to define the id because it is incremented automatically. The webpage_id must create a relation with the record in the webpage table and for
-            now we choose a sample hit count for example 3.</p>
-            <div class="example-wrap">
-              <pre class="language-sql"><code>insert into webpage(id, webpage)
-values(555555, 'test')
+@enduml</code></pre></div><h3 id="project-for-tutorial"><a class="doc-anchor" href="#project-for-tutorial">§</a>Project for tutorial</h3>
+<p>This is a perfect simple example how to use a Web server and a database in Rust.<br />
+I choose the crate Actix-web for my web server, because it looks very popular among Rustaceans. I don’t know if other Rust web servers are better or worse. I need something really super simple and I don’t want to complicate analyzing every existing web-server crate.<br />
+<a href="https://actix.rs/">https://actix.rs/</a><br />
+I choose PostgreSQL or Postgres as my preferred database because I have a long history with MSSQL and they look fairly similar. I also heard a lot of good opinions about Postgres.<br />
+<a href="https://www.postgresql.org/">https://www.postgresql.org/</a></p>
+<h3 id="postgres-in-a-container"><a class="doc-anchor" href="#postgres-in-a-container">§</a>Postgres in a container</h3>
+<p>My Rust development environment is a podman pod with 2 containers. I will add to that pod a new container for the Postgres server and one with the pgAdmin management tool.<br />
+I enhanced the script crustde_pod_create.sh from my project crustde_cnt_img_pod and started the new pod. A new port 9876 will be used for pgAdmin.<br />
+I will now force the reboot of WSL to demonstrate how to restart the pod. In powershell run as administrator I use “Get-Service LxssManager | Restart-Service”.
+After reboot I need a small bash script to restart the pod, because of the peculiarities of WSL.
+<a href="https://github.com/CRUSTDE-ContainerizedRustDevEnv/crustde_cnt_img_pod">https://github.com/CRUSTDE-ContainerizedRustDevEnv/crustde_cnt_img_pod</a></p>
+<h3 id="pgadmin-create-database-and-tables"><a class="doc-anchor" href="#pgadmin-create-database-and-tables">§</a>pgAdmin create database and tables</h3>
+<p>Now we can open the pgAdmin management tool inside a browser on the address localhost 9 8 7 6.<br />
+For this tutorial we will not deep dive into database security. We will use just the admin user role. This is a big no no in production.<br />
+First create a new database named webpage_hit_counter.<br />
+The first table will be a list of webpages with their unique integer id.</p>
+<p>A table is made of columns and rows or synonymous of fields and records.</p>
+<p>The second table will have a foreign key to the webpage table and the number of hits. The serial datatype automatically increases on every insert command and is therefor unique.<br />
+I forgot to assign the primary key to the tables.
+We will add the foreign key to define the relation between the tables. And we will set the columns to not null.<br />
+That is all for now about the Postgres database. The data will be inserted from the Rust code.</p>
+<h3 id="template-project-with-cargo-auto-new_cli"><a class="doc-anchor" href="#template-project-with-cargo-auto-new_cli">§</a>Template project with cargo auto new_cli</h3>
+<p>We will create a template CLI project using “cargo auto new_cli”.
+Open VSCode, press F1, remote-ssh connect to host, enter passphrase. In the rustprojects directory create a new template Rust project named webpage_hit_counter. Open it in a new VSCode window.
+Build it with “cargo auto build” and run it. Just to check that everything is ok.<br />
+Eureka, it works!</p>
+<h3 id="actix-web-server"><a class="doc-anchor" href="#actix-web-server">§</a>Actix web server</h3>
+<p>Let begin our discovery of actix-web with a simple Hello World example. Classic getting started stuff!
+<a href="https://actix.rs/docs/getting-started/">https://actix.rs/docs/getting-started/</a><br />
+I will comment or delete the code I don’t need and replace it with the code from the example.
+I use the VSCode extension “crates from Seray Uzgur” to check the last version of the crate and quickly open the documentation.<br />
+<a href="https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates">https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates</a></p>
+<p>Let rename the module and copy the code from the example.
+I like to leave some parts of the template code for future use.<br />
+Functions that are used outside the module must be public.
+Lib.rs has a big segment of doc-comments. We can fold it quickly with the fold marker.
+We need to rename the module and allow use of all functions from it.
+The main function is copied into the bin main.rs file.
+Now we copy the use statement. We can delete the unused objects.
+The bin main.rs is a separate part of the project and we must write a use statement for the library project.
+In the explorer side panel we can see in yellow the modules that have warning and in red the ones with errors. We can clean this problems easily.
+With F1 we got all the VSCode functions under our fingertips. I need to Comment the code. Sometimes typing is faster than using the mouse.
+We can now build the project with cargo auto build.
+In VSCode we have to open the port 8011, so that we can access the container from our browser.
+Run the compiled code without any parameters.
+Now open the browser on localhost port 8011.<br />
+Hello world! It works. Let’s try with another function.
+The routing for Hey calls the functions manual_hello and writes “Hey there!”.</p>
+<h3 id="new-route"><a class="doc-anchor" href="#new-route">§</a>new route</h3>
+<p>We will now modify the code for our example. We need only one route named webpage_hit_counter/get_svg_image. It will call the function with the same name.<br />
+I like to use Rust raw string, because I can copy paste literal text without modifying it.
+We will return a svg file for the badge. Svg is simple xml text, nothing complicated.
+Let’s build the project and open it in the browser.
+We need to add the MIME type so the browser can render the svg instead of showing the text.
+We need a new dependency crate for mime.
+There is need for a few modification to main and the automation tasks. Nothing big.
+We can now build the project and open the URL in the browser.<br />
+Hooray! We can now see the SVG image for the badge with the word “Hits” and the number 14. Pretty neat!</p>
+<h3 id="data-in-the-database"><a class="doc-anchor" href="#data-in-the-database">§</a>data in the database</h3>
+<p>Now we need to insert some data into the database. I will use the pgAdmin management tool. There is a graphical way to write data, but I will use SQL statements. Sooner or later we need to write SQL statements. And they are not so difficult. The basics is only 4 words: SELECt, UPDATE, INSERT and DELETE.
+In this table the id will be a random number. Our first row or record is for testing purposes.
+Into the second table we don’t need to define the id because it is incremented automatically. The webpage_id must create a relation with the record in the webpage table and for now we choose a sample hit count for example 3.</p>
+<div class="example-wrap"><pre class="language-sql"><code>insert into webpage(id, webpage)
+values(555555, &#39;test&#39;)
 
 insert into hit_counter(webpage_id, count)
-values(555555, 3)
-</code></pre>
-            </div>
-            <h3 id="postgres-and-rust"><a class="doc-anchor" href="#postgres-and-rust">§</a>Postgres and Rust</h3>
-            <p>We will find an example how to write Rust code to select data from the Postgres database.<br>
-            I choose the asynchronous Tokio client because it matches the Tokio runtime of Actix-web.<br>
-            <a href="https://docs.rs/crate/tokio-postgres/0.7.6">https://docs.rs/crate/tokio-postgres/0.7.6</a><br>
-            This is a good moment to create a git repository because we will experiment a little bit with the postgres code. I use ssh-agent and ssh-add to
-            store my credentials for GitHub. We add the tokio-postgres crate to cargo.toml. We create a new module for postgres and a new function based on the
-            example that read the hit count from the table. We have to add the new module to lib.rs. In the actix module we call the function and print the
-            result to the terminal. ok. Build it, open it in the browser. It works. Check the terminal and we see the number 3 that was read from the table.
-            Perfect. We want this number to show up in the SVG image. That is simple, because SVG is just an XML text. We will use the new format syntax from
-            Rust edition 2021. Works perfectly! Time for a git commit and push. <a href=
-            "https://chamook.lol/rust-web-service/">https://chamook.lol/rust-web-service/</a></p>
-            <h3 id="connection-pool"><a class="doc-anchor" href="#connection-pool">§</a>connection pool</h3>
-            <p>Opening a connection to the database every time the server gets a request is not ideal. We need a connection pool to share the same connection
-            for sequential requests efficiently. We can use the deadpool crate.</p>
-            <p>We will use the rust-dotenv crate to keep database connection and configuration values in a config file with the name <code>.env</code>.
-            <a href="https://chamook.lol/rust-web-service/">https://chamook.lol/rust-web-service/</a></p>
-            <p>We add also the dependency crate deadpool-postgres. We will make a new module for deadpool to have things neatly separated.<br>
-            First we load the env variables. This is a special deadpool-postgres crate and works with postgres configuration objects. We add the new module to
-            lib.rs. Now we can call this function from the main function. Actix can seamlessly pass objects to functions if we use app-data. In this case we
-            pass the cloned pool object. I want to write when the server stops in the terminal. We can now add the pool parameter to our request handler and
-            pass it to our database call.<br>
-            We need one client connection from the pool. This closure must be “move” now. For debugging I want to write to the terminal when the request is
-            executed. Build and try. Refresh a few times. In the terminal we can see multiple requests. It works.</p>
-            <h3 id="parameter"><a class="doc-anchor" href="#parameter">§</a>parameter</h3>
-            <p>We will now introduce the parameter webpage_id, so we can count hits on many different pages.<br>
-            In pgAdmin insert new records in webpage and in hit_counter. The id will be random 6 times 7 and the count 17 for now. We will use the Query tool
-            and write SQL statements.</p>
-            <div class="example-wrap">
-              <pre class="language-sql"><code>insert into webpage(id, webpage)
-values(777777, 'test2')
+values(555555, 3)</code></pre></div><h3 id="postgres-and-rust"><a class="doc-anchor" href="#postgres-and-rust">§</a>Postgres and Rust</h3>
+<p>We will find an example how to write Rust code to select data from the Postgres database.<br />
+I choose the asynchronous Tokio client because it matches the Tokio runtime of Actix-web.<br />
+<a href="https://docs.rs/crate/tokio-postgres/0.7.6">https://docs.rs/crate/tokio-postgres/0.7.6</a><br />
+This is a good moment to create a git repository because we will experiment a little bit with the postgres code.
+I use ssh-agent and ssh-add to store my credentials for GitHub.
+We add the tokio-postgres crate to cargo.toml. We create a new module for postgres and a new function based on the example that read the hit count from the table. We have to add the new module to lib.rs. In the actix module we call the function and print the result to the terminal.
+ok. Build it, open it in the browser. It works. Check the terminal and we see the number 3 that was read from the table. Perfect.
+We want this number to show up in the SVG image. That is simple, because SVG is just an XML text. We will use the new format syntax from Rust edition 2021.
+Works perfectly!
+Time for a git commit and push.
+<a href="https://chamook.lol/rust-web-service/">https://chamook.lol/rust-web-service/</a></p>
+<h3 id="connection-pool"><a class="doc-anchor" href="#connection-pool">§</a>connection pool</h3>
+<p>Opening a connection to the database every time the server gets a request is not ideal. We need a connection pool to share the same connection for sequential requests efficiently. We can use the deadpool crate.</p>
+<p>We will use the rust-dotenv crate to keep database connection and configuration values in a config file with the name <code>.env</code>.
+<a href="https://chamook.lol/rust-web-service/">https://chamook.lol/rust-web-service/</a></p>
+<p>We add also the dependency crate deadpool-postgres.
+We will make a new module for deadpool to have things neatly separated.<br />
+First we load the env variables.
+This is a special deadpool-postgres crate and works with postgres configuration objects.
+We add the new module to lib.rs.
+Now we can call this function from the main function.
+Actix can seamlessly pass objects to functions if we use app-data. In this case we pass the cloned pool object.
+I want to write when the server stops in the terminal.
+We can now add the pool parameter to our request handler and pass it to our database call.<br />
+We need one client connection from the pool.
+This closure must be “move” now.
+For debugging I want to write to the terminal when the request is executed.
+Build and try. Refresh a few times. In the terminal we can see multiple requests. It works.</p>
+<h3 id="parameter"><a class="doc-anchor" href="#parameter">§</a>parameter</h3>
+<p>We will now introduce the parameter webpage_id, so we can count hits on many different pages.<br />
+In pgAdmin insert new records in webpage and in hit_counter. The id will be random 6 times 7 and the count 17 for now. We will use the Query tool and write SQL statements.</p>
+<div class="example-wrap"><pre class="language-sql"><code>insert into webpage(id, webpage)
+values(777777, &#39;test2&#39;)
 
 insert into hit_counter(webpage_id, count)
-values(777777, 17)
-</code></pre>
-            </div>
-            <p>In this tutorial we will not create a user interface to add webpages. That is reserved for my next tutorial.</p>
-            <p>Actix has integrated tools to extract parameters from URL paths. It is easy. Just use the right syntax for the route. Accept the new parameter
-            and then pass it to the postgres function. Then pass this parameter to the SQL statement in the WHERE clause. Build and try with different
-            parameters. The first return 3 hits, the second returns 17 hits. Hooray! It works!</p>
-            <h3 id="increment"><a class="doc-anchor" href="#increment">§</a>increment</h3>
-            <p>The final step of the development is to increment the hit counter every time we got the request. We will write another simple SQL statement
-            before selecting the value. Build, try, works. Done !</p>
-            <h3 id="how-to-use-it"><a class="doc-anchor" href="#how-to-use-it">§</a>how to use it</h3>
-            <p>We can create a simple example page how to use our webpage_hit_counter. It can be just a single page passive file index.html.<br>
-            The Show preview command for html is added by the Live Preview Extension for VSCode. I use it because the VSCode server is running inside a docker
-            container.<br>
-            Marvelous. I like the graphic part too!</p>
-            <h3 id="outro"><a class="doc-anchor" href="#outro">§</a>Outro</h3>
-            <p>In this tutorial I will not go into details how to deploy it to my web server. Maybe in another tutorial.</p>
-            <p>This is all for today.<br>
-            Thank you for watching and see you next time.<br>
-            Feel free to contact me on bestia.dev or github.</p>
-            <h3 id="adding-new-webpages-into-the-database"><a class="doc-anchor" href="#adding-new-webpages-into-the-database">§</a>Adding new webpages into
-            the database</h3>
-            <p>I created a bash script to insert a webpage in the webpage_hit_counter database on bestia.dev over SSH in one command.<br>
-            Use sshadd to enter the passphrase for the SSH connection beforehand.<br>
-            The bash script needs 1 arguments: <code>host_name</code> like this:</p>
-            <div class="example-wrap">
-              <pre class="language-bash"><code>sh ssh_psql_insert_webpage.sh test.com
-</code></pre>
-            </div>
-            <h3 id="alpine-and-musl"><a class="doc-anchor" href="#alpine-and-musl">§</a>Alpine and musl</h3>
-            <p>2023-11-19 I will compile the program to target musl to be used with Alpine docker image.<br>
-            It is smaller and it does not depend on the version of Debian. I had problems when compiling to Debian 12 and then try to create the container on
-            Debian 11.</p>
-            <h3 id="deploying_rust_server_and_database"><a class="doc-anchor" href=
-            "#deploying_rust_server_and_database">§</a>deploying_rust_server_and_database</h3>
-            <p>Read and watch the next tutorial deploying_rust_server_and_database.</p>
-            <h3 id="cargo-crev-reviews-and-advisory"><a class="doc-anchor" href="#cargo-crev-reviews-and-advisory">§</a>cargo crev reviews and advisory</h3>
-            <p>We live in times of danger with <a href="https://en.wikipedia.org/wiki/Supply_chain_attack">supply chain attacks</a>.<br>
-            It is recommended to always use <a href="https://github.com/crev-dev/cargo-crev">cargo-crev</a><br>
-            to verify the trustworthiness of each of your dependencies.<br>
-            Please, spread this info.<br>
-            You can also read reviews quickly on the web:<br>
-            <a href="https://web.crev.dev/rust-reviews/crates/">https://web.crev.dev/rust-reviews/crates/</a></p>
-            <h3 id="open-source-and-free-as-a-beer"><a class="doc-anchor" href="#open-source-and-free-as-a-beer">§</a>Open-source and free as a beer</h3>
-            <p>My open-source projects are free as a beer (MIT license).<br>
-            I just love programming.<br>
-            But I need also to drink. If you find my projects and tutorials helpful, please buy me a beer by donating to my <a href=
-            "https://paypal.me/LucianoBestia">PayPal</a>.<br>
-            You know the price of a beer in your local bar ;-)<br>
-            So I can drink a free beer for your health :-)<br>
-            <a href="https://translate.google.com/?hl=en&amp;sl=sl&amp;tl=en&amp;text=Na%20zdravje&amp;op=translate">Na zdravje!</a> <a href=
-            "https://dictionary.cambridge.org/dictionary/italian-english/alla-salute">Alla salute!</a> <a href=
-            "https://dictionary.cambridge.org/dictionary/german-english/prost">Prost!</a> <a href=
-            "https://matadornetwork.com/nights/how-to-say-cheers-in-50-languages/">Nazdravlje!</a> 🍻</p>
-            <p><a href="https://bestia.dev">//bestia.dev</a><br>
-            <a href="https://github.com/bestia-dev">//github.com/bestia-dev</a><br>
-            <a href="https://bestiadev.substack.com">//bestiadev.substack.com</a><br>
-            <a href="https://youtube.com/@bestia-dev-tutorials">//youtube.com/@bestia-dev-tutorials</a></p>
-          </div>
-        </details>
-        <h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2>
-        <ul class="item-table">
-          <li>
-            <div class="item-name">
-              <a class="mod" href="actix_mod/index.html" title="mod webpage_hit_counter::actix_mod">actix_mod</a><span title=
-              "Restricted Visibility">&nbsp;🔒</span>
-            </div>
-            <div class="desc docblock-short">
-              All the real code is inside modules in separate files.
-            </div>
-          </li>
-          <li>
-            <div class="item-name">
-              <a class="mod" href="deadpool_mod/index.html" title="mod webpage_hit_counter::deadpool_mod">deadpool_mod</a><span title=
-              "Restricted Visibility">&nbsp;🔒</span>
-            </div>
-            <div class="desc docblock-short">
-              deadpool_mod.rs
-            </div>
-          </li>
-          <li>
-            <div class="item-name">
-              <a class="mod" href="postgres_mod/index.html" title="mod webpage_hit_counter::postgres_mod">postgres_mod</a><span title=
-              "Restricted Visibility">&nbsp;🔒</span>
-            </div>
-            <div class="desc docblock-short">
-              postgres_mod.rs
-            </div>
-          </li>
-        </ul>
-        <h2 id="enums" class="section-header">Enums<a href="#enums" class="anchor">§</a></h2>
-        <ul class="item-table">
-          <li>
-            <div class="item-name">
-              <a class="enum" href="enum.LibraryError.html" title="enum webpage_hit_counter::LibraryError">LibraryError</a>
-            </div>
-            <div class="desc docblock-short">
-              all possible library errors for <code>thiserror</code>
-            </div>
-          </li>
-        </ul>
-        <h2 id="constants" class="section-header">Constants<a href="#constants" class="anchor">§</a></h2>
-        <ul class="item-table">
-          <li>
-            <div class="item-name">
-              <a class="constant" href="constant.GREEN.html" title="constant webpage_hit_counter::GREEN">GREEN</a>
-            </div>
-          </li>
-          <li>
-            <div class="item-name">
-              <a class="constant" href="constant.RED.html" title="constant webpage_hit_counter::RED">RED</a>
-            </div>
-          </li>
-          <li>
-            <div class="item-name">
-              <a class="constant" href="constant.RESET.html" title="constant webpage_hit_counter::RESET">RESET</a>
-            </div>
-          </li>
-          <li>
-            <div class="item-name">
-              <a class="constant" href="constant.YELLOW.html" title="constant webpage_hit_counter::YELLOW">YELLOW</a>
-            </div>
-          </li>
-        </ul>
-        <h2 id="functions" class="section-header">Functions<a href="#functions" class="anchor">§</a></h2>
-        <ul class="item-table">
-          <li>
-            <div class="item-name">
-              <a class="fn" href="fn.deadpool_postgres_start.html" title="fn webpage_hit_counter::deadpool_postgres_start">deadpool_postgres_start</a>
-            </div>
-          </li>
-          <li>
-            <div class="item-name">
-              <a class="fn" href="fn.get_svg_image.html" title="fn webpage_hit_counter::get_svg_image">get_svg_image</a>
-            </div>
-            <div class="desc docblock-short">
-              extract path info from “/webpage_hit_counter/get_svg_image/{webpage_id}.svg” url {webpage_id} - deserializes to a i32
-            </div>
-          </li>
-          <li>
-            <div class="item-name">
-              <a class="fn" href="fn.select_count.html" title="fn webpage_hit_counter::select_count">select_count</a>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </main>
-</body>
-</html>
+values(777777, 17)</code></pre></div>
+<p>In this tutorial we will not create a user interface to add webpages. That is reserved for my next tutorial.</p>
+<p>Actix has integrated tools to extract parameters from URL paths. It is easy. Just use the right syntax for the route.
+Accept the new parameter and then pass it to the postgres function.
+Then pass this parameter to the SQL statement in the WHERE clause.
+Build and try with different parameters. The first return 3 hits, the second returns 17 hits. Hooray! It works!</p>
+<h3 id="increment"><a class="doc-anchor" href="#increment">§</a>increment</h3>
+<p>The final step of the development is to increment the hit counter every time we got the request. We will write another simple SQL statement before selecting the value.
+Build, try, works. Done !</p>
+<h3 id="how-to-use-it"><a class="doc-anchor" href="#how-to-use-it">§</a>how to use it</h3>
+<p>We can create a simple example page how to use our webpage_hit_counter.
+It can be just a single page passive file index.html.<br />
+The Show preview command for html is added by the Live Preview Extension for VSCode. I use it because the VSCode server is running inside a docker container.<br />
+Marvelous. I like the graphic part too!</p>
+<h3 id="outro"><a class="doc-anchor" href="#outro">§</a>Outro</h3>
+<p>In this tutorial I will not go into details how to deploy it to my web server. Maybe in another tutorial.</p>
+<p>This is all for today.<br />
+Thank you for watching and see you next time.<br />
+Feel free to contact me on bestia.dev or github.</p>
+<h3 id="adding-new-webpages-into-the-database"><a class="doc-anchor" href="#adding-new-webpages-into-the-database">§</a>Adding new webpages into the database</h3>
+<p>I created a bash script to insert a webpage in the webpage_hit_counter database on bestia.dev over SSH in one command.<br />
+Use sshadd to enter the passphrase for the SSH connection beforehand.<br />
+The bash script needs 1 arguments: <code>host_name</code> like this:</p>
+<div class="example-wrap"><pre class="language-bash"><code>sh ssh_psql_insert_webpage.sh test.com</code></pre></div><h3 id="alpine-and-musl"><a class="doc-anchor" href="#alpine-and-musl">§</a>Alpine and musl</h3>
+<p>2023-11-19
+I will compile the program to target musl to be used with Alpine docker image.<br />
+It is smaller and it does not depend on the version of Debian. I had problems when compiling to Debian 12 and then try to create the container on Debian 11.</p>
+<h3 id="deploying_rust_server_and_database"><a class="doc-anchor" href="#deploying_rust_server_and_database">§</a>deploying_rust_server_and_database</h3>
+<p>Read and watch the next tutorial deploying_rust_server_and_database.</p>
+<h3 id="cargo-crev-reviews-and-advisory"><a class="doc-anchor" href="#cargo-crev-reviews-and-advisory">§</a>cargo crev reviews and advisory</h3>
+<p>We live in times of danger with <a href="https://en.wikipedia.org/wiki/Supply_chain_attack">supply chain attacks</a>.<br />
+It is recommended to always use <a href="https://github.com/crev-dev/cargo-crev">cargo-crev</a><br />
+to verify the trustworthiness of each of your dependencies.<br />
+Please, spread this info.<br />
+You can also read reviews quickly on the web:<br />
+<a href="https://web.crev.dev/rust-reviews/crates/">https://web.crev.dev/rust-reviews/crates/</a></p>
+<h3 id="open-source-and-free-as-a-beer"><a class="doc-anchor" href="#open-source-and-free-as-a-beer">§</a>Open-source and free as a beer</h3>
+<p>My open-source projects are free as a beer (MIT license).<br />
+I just love programming.<br />
+But I need also to drink. If you find my projects and tutorials helpful, please buy me a beer by donating to my <a href="https://paypal.me/LucianoBestia">PayPal</a>.<br />
+You know the price of a beer in your local bar ;-)<br />
+So I can drink a free beer for your health :-)<br />
+<a href="https://translate.google.com/?hl=en&amp;sl=sl&amp;tl=en&amp;text=Na%20zdravje&amp;op=translate">Na zdravje!</a> <a href="https://dictionary.cambridge.org/dictionary/italian-english/alla-salute">Alla salute!</a> <a href="https://dictionary.cambridge.org/dictionary/german-english/prost">Prost!</a> <a href="https://matadornetwork.com/nights/how-to-say-cheers-in-50-languages/">Nazdravlje!</a> 🍻</p>
+<p><a href="https://bestia.dev">//bestia.dev</a><br />
+<a href="https://github.com/bestia-dev">//github.com/bestia-dev</a><br />
+<a href="https://bestiadev.substack.com">//bestiadev.substack.com</a><br />
+<a href="https://youtube.com/@bestia-dev-tutorials">//youtube.com/@bestia-dev-tutorials</a></p>
+</div></details><h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2><dl class="item-table"><dt><a class="mod" href="actix_mod/index.html" title="mod webpage_hit_counter::actix_mod">actix_<wbr>mod</a><span title="Restricted Visibility">&nbsp;🔒</span> </dt><dd>All the real code is inside modules in separate files.</dd><dt><a class="mod" href="deadpool_mod/index.html" title="mod webpage_hit_counter::deadpool_mod">deadpool_<wbr>mod</a><span title="Restricted Visibility">&nbsp;🔒</span> </dt><dd>deadpool_mod.rs</dd><dt><a class="mod" href="postgres_mod/index.html" title="mod webpage_hit_counter::postgres_mod">postgres_<wbr>mod</a><span title="Restricted Visibility">&nbsp;🔒</span> </dt><dd>postgres_mod.rs</dd></dl><h2 id="enums" class="section-header">Enums<a href="#enums" class="anchor">§</a></h2><dl class="item-table"><dt><a class="enum" href="enum.LibraryError.html" title="enum webpage_hit_counter::LibraryError">Library<wbr>Error</a></dt><dd>all possible library errors for <code>thiserror</code></dd></dl><h2 id="constants" class="section-header">Constants<a href="#constants" class="anchor">§</a></h2><dl class="item-table"><dt><a class="constant" href="constant.GREEN.html" title="constant webpage_hit_counter::GREEN">GREEN</a></dt><dt><a class="constant" href="constant.RED.html" title="constant webpage_hit_counter::RED">RED</a></dt><dt><a class="constant" href="constant.RESET.html" title="constant webpage_hit_counter::RESET">RESET</a></dt><dt><a class="constant" href="constant.YELLOW.html" title="constant webpage_hit_counter::YELLOW">YELLOW</a></dt></dl><h2 id="functions" class="section-header">Functions<a href="#functions" class="anchor">§</a></h2><dl class="item-table"><dt><a class="fn" href="fn.deadpool_postgres_start.html" title="fn webpage_hit_counter::deadpool_postgres_start">deadpool_<wbr>postgres_<wbr>start</a></dt><dt><a class="fn" href="fn.get_svg_image.html" title="fn webpage_hit_counter::get_svg_image">get_<wbr>svg_<wbr>image</a></dt><dd>extract path info from “/webpage_hit_counter/get_svg_image/{webpage_id}.svg” url
+{webpage_id} - deserializes to a i32</dd><dt><a class="fn" href="fn.select_count.html" title="fn webpage_hit_counter::select_count">select_<wbr>count</a></dt></dl></section></div></main></body></html>
