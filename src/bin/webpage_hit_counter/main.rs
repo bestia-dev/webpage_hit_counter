@@ -33,7 +33,7 @@ async fn main() -> std::io::Result<()> {
     .run()
     .await;
 
-    println!("");
+    println!();
     println!("Actix web server stopped!");
     // return
     http_server_result

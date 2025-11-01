@@ -2,19 +2,63 @@
   "vec_file_metadata": [
     {
       "filename": "automation_tasks_rs/Cargo.toml",
-      "filehash": "2101577a41267532ddd5167fc036a69a90019ce753d93935a30225093f1a34e9"
+      "filehash": "83d09e048c75603eae397a2d37e93fc904c5593b94564d57d03bfbed0cbc14ec"
     },
     {
       "filename": "automation_tasks_rs/target/debug/automation_tasks_rs",
-      "filehash": "bc6bfbab565f64f32764435edbd747b8a11037a7dc614280ed2d2156194ce390"
+      "filehash": "32718bc8fb8c01602508c5b1dbdb753bd1d636771792f299644bcb26dea92bb1"
+    },
+    {
+      "filename": "automation_tasks_rs/src/build_cli_bin_mod.rs",
+      "filehash": "7b2c3e8408c1a198e3fec8a7eeaeeb1682f2c784c017aace4879f5cde2fbb115"
+    },
+    {
+      "filename": "automation_tasks_rs/src/encrypt_decrypt_with_ssh_key_mod/github_api_token_with_oauth2_mod.rs",
+      "filehash": "be70b938ea88a58b5d81d3511fdac64649441e0db6614614c35bd8a475a7b309"
+    },
+    {
+      "filename": "automation_tasks_rs/src/encrypt_decrypt_with_ssh_key_mod/crates_io_api_token_mod.rs",
+      "filehash": "fcc1b793dfaf654e8fb004e1f36597f588e851cb3d5c87222576b9e12850331b"
+    },
+    {
+      "filename": "automation_tasks_rs/src/encrypt_decrypt_with_ssh_key_mod/encrypt_decrypt_mod.rs",
+      "filehash": "4dbc6ff317d79cfe4600f288281c0fc8c9c750b73d67d6ecb1a2c36020ad6437"
+    },
+    {
+      "filename": "automation_tasks_rs/src/encrypt_decrypt_with_ssh_key_mod/mod.rs",
+      "filehash": "b54e3a9853fdd7c5f464ee5f48e5abb9ce99f9cfce558c97eefb9a1206fc3eaa"
+    },
+    {
+      "filename": "automation_tasks_rs/src/build_cli_bin_win_mod.rs",
+      "filehash": "ff1b023a9cd55d53d7d258644e31ba63cdc27a4877038c8385369d8c1a23929d"
     },
     {
       "filename": "automation_tasks_rs/src/main.rs",
-      "filehash": "a20c4939dc06e7ae889cdff388d29d6fac88cd0d4317c549a8939bb219a5d3c6"
+      "filehash": "b84f7068b69e89e77df56c27d703561397c4d7a347d841b238a8cd7f9eb02681"
     },
     {
-      "filename": "automation_tasks_rs/src/secrets_always_local_mod.rs",
-      "filehash": "1bd94b9b233639316501be0a1c9961e2e6ed75ea27dc5f0f6f01e243fb1c653d"
+      "filename": "automation_tasks_rs/src/build_lib_mod.rs",
+      "filehash": "031613bb4286bf3a1dbe3e2d8919d22c4e5919082a357d2c960ede24ee812fba"
+    },
+    {
+      "filename": "automation_tasks_rs/src/main_new.rs",
+      "filehash": "89699f976ff64d566e6404e940f17cf8238364c162a857e8a63b386f09e072de"
+    },
+    {
+      "filename": "automation_tasks_rs/src/build_wasm_mod.rs",
+      "filehash": "1af1b53859e4a155179983e5f094f6a7484605685117a6f5acfe583cb9cbf0c5"
+    },
+    {
+      "filename": "automation_tasks_rs/src/generic_functions_mod.rs",
+      "filehash": "361398231515303c0b94c1e781e1dc1fe3e37bd7dba5a356e88e93b6bda5d821"
+    },
+    {
+      "filename": "automation_tasks_rs/src/tasks_mod.rs",
+      "filehash": "6d74c0aadeb93b1b142f128a67663e7c7811cbd102c31fafeafa76ef561426b2"
+    },
+    {
+      "filename": "automation_tasks_rs/src/cargo_auto_github_api_mod.rs",
+      "filehash": "a0bc9282d2880f21a8d19fb9150382b7f2a25de09717d2a9d69b5b80c3cd631f"
     }
   ]
 }

@@ -17,7 +17,6 @@ pub async fn deadpool_postgres_start() -> deadpool_postgres::Pool {
     println!("create manager");
     let mgr = deadpool_postgres::Manager::from_config(pg_config, tokio_postgres::NoTls, mgr_config);
     println!("create pool");
-    let pool = deadpool_postgres::Pool::builder(mgr).max_size(16).build().unwrap();
-    // return
-    pool
+    // return pool
+    deadpool_postgres::Pool::builder(mgr).max_size(16).build().unwrap()
 }

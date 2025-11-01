@@ -1,4 +1,4 @@
-// automation_tasks_rs for webpage_hit_counter
+// automation_tasks_rs for msg_enc_dec
 
 // region: library and modules with basic automation tasks
 
@@ -12,7 +12,6 @@ mod generic_functions_mod;
 mod tasks_mod;
 
 pub use cargo_auto_lib as cl;
-use cargo_auto_lib::ShellCommandLimitedDoubleQuotesSanitizerTrait;
 #[allow(unused_imports)]
 use crossplatform_path::CrossPathBuf;
 
@@ -69,8 +68,8 @@ fn match_arguments_and_call_tasks(mut args: std::env::Args) -> anyhow::Result<()
                 println!("  {YELLOW}Running automation task: {task}{RESET}");
                 if &task == "build" {
                     task_build()?;
-                } else if &task == "release" {
-                    task_release()?;
+                } else if &task == "wasi_release" {
+                    task_wasi_release()?;
                 } else if &task == "doc" {
                     task_doc()?;
                 } else if &task == "test" {
@@ -78,8 +77,6 @@ fn match_arguments_and_call_tasks(mut args: std::env::Args) -> anyhow::Result<()
                 } else if &task == "commit_and_push" {
                     let arg_2 = args.next();
                     task_commit_and_push(arg_2)?;
-                } else if &task == "publish_to_web" {
-                    task_publish_to_web()?;
                 } else if &task == "github_new_release" {
                     task_github_new_release()?;
                 } else {
@@ -101,7 +98,7 @@ fn print_help() -> anyhow::Result<()> {
 
   {YELLOW}User defined tasks in automation_tasks_rs:{RESET}
 {GREEN}cargo auto build{RESET} - {YELLOW}builds the crate in debug mode, fmt, increment version{RESET}
-{GREEN}cargo auto release{RESET} - {YELLOW}builds the crate in release mode, fmt, increment version{RESET}
+{GREEN}cargo auto wasi_release{RESET} - {YELLOW}builds the crate for Wasmtime, fmt, increment version{RESET}
 {GREEN}cargo auto doc{RESET} - {YELLOW}builds the docs, copy to docs directory{RESET}
 {GREEN}cargo auto test{RESET} - {YELLOW}runs all the tests{RESET}
 {GREEN}cargo auto commit_and_push "message"{RESET} - {YELLOW}commits with message and push with mandatory message{RESET}
@@ -112,10 +109,6 @@ fn print_help() -> anyhow::Result<()> {
   {YELLOW}The secret token will be stored in a file encrypted with your SSH private key.{RESET}
   {YELLOW}You can type the passphrase of the private key for every usee. This is pretty secure.{RESET}
   {YELLOW}Somewhat less secure (but more comfortable) way is to store the private key in ssh-agent.{RESET}
-{GREEN}cargo auto publish_to_web{RESET} - {YELLOW}publish to my google VM, git tag{RESET}
-    {YELLOW}You need the SSH private key for publishing.{RESET}
-    {YELLOW}You can type the SSH passphrase of the private key every time. This is pretty secure.{RESET}
-    {YELLOW}Somewhat less secure (but more comfortable) way is to store the private key in ssh-agent.{RESET}
 {GREEN}cargo auto github_new_release{RESET} - {YELLOW}creates new release on GitHub{RESET}
   {YELLOW}For the GitHub API the task needs the Access secret token from OAuth2 device workflow.{RESET}
   {YELLOW}The secret token will be stored in a file encrypted with your SSH private key.{RESET}
@@ -143,7 +136,7 @@ fn print_examples_cmd() {
     */
 }
 
-/// sub-command for bash auto-completion of `cargo auto` using the crate `dev_bestia_cargo_completion`
+/// Sub-command for bash auto-completion of `cargo auto` using the crate `dev_bestia_cargo_completion`.
 fn completion() -> anyhow::Result<()> {
     let args: Vec<String> = std::env::args().collect();
     let word_being_completed = args[2].as_str();
@@ -152,11 +145,10 @@ fn completion() -> anyhow::Result<()> {
     if last_word == "cargo-auto" || last_word == "auto" {
         let sub_commands = vec![
             "build",
-            "release",
+            "wasi_release",
             "doc",
             "test",
             "commit_and_push",
-            "publish_to_web",
             "github_new_release",
             "update_automation_tasks_rs",
         ];
@@ -181,13 +173,17 @@ fn task_build() -> anyhow::Result<()> {
     let cargo_toml = crate::build_cli_bin_mod::task_build()?;
     println!(
         r#"
-    {YELLOW}After `cargo auto build`, run the compiled binary, examples and/or tests{RESET}
-    {YELLOW}The postgres server and database must be accessible on the port 5432 on localhost{RESET}
-{GREEN}./target/x86_64-unknown-linux-musl/debug/{package_name}{RESET}
-    {YELLOW}In the browser or in curl open{RESET}
-{GREEN}http://localhost:8011/webpage_hit_counter/get_svg_image/555555.svg{RESET}
-    {YELLOW}if {package_name} ok then{RESET}
-{GREEN}cargo auto release{RESET}
+  {YELLOW}After `cargo auto build`, run the compiled binary, examples and/or tests{RESET}
+{GREEN}alias msg_enc_dec=./target/debug/{package_name}{RESET}
+{GREEN}msg_enc_dec create_ssh_key{RESET}
+{GREEN}msg_enc_dec send_public_key {RESET}
+{GREEN}msg_enc_dec receive_send_public_key {RESET}
+{GREEN}msg_enc_dec message_encrypt{RESET}
+{GREEN}msg_enc_dec message_decrypt{RESET}
+{GREEN}msg_enc_dec file_encrypt file_name{RESET}
+{GREEN}msg_enc_dec file_decrypt file_name{RESET}
+  {YELLOW}if {package_name} ok then{RESET}
+{GREEN}cargo auto wasi_release{RESET}
 "#,
         package_name = cargo_toml.package_name(),
     );
@@ -195,29 +191,23 @@ fn task_build() -> anyhow::Result<()> {
     Ok(())
 }
 
-/// cargo build --release
-fn task_release() -> anyhow::Result<()> {
+/// cargo build --release --target=wasm32-wasip1
+fn task_wasi_release() -> anyhow::Result<()> {
     let cargo_toml = cl::CargoToml::read()?;
     cl::auto_version_increment_semver_or_date()?;
     cl::auto_cargo_toml_to_md()?;
     cl::auto_lines_of_code("")?;
 
     cl::run_shell_command_static("cargo fmt")?;
-    cl::run_shell_command_static("cargo clippy --no-deps")?;
-    cl::run_shell_command_static("cargo build --release --target x86_64-unknown-linux-musl")?;
-
-    cl::ShellCommandLimitedDoubleQuotesSanitizer::new(r#"strip "target/x86_64-unknown-linux-musl/release/{package_name}" "#)?
-        .arg("{package_name}", &cargo_toml.package_name())?
-        .run()?;
+    cl::run_shell_command_static("cargo clippy --no-deps --target wasm32-wasip1")?;
+    cl::run_shell_command_static("cargo build --release --target wasm32-wasip1")?;
 
     println!(
         r#"
-  {YELLOW}After `cargo auto release`, run the compiled binary, examples and/or tests{RESET}
-  {YELLOW}The postgres server and database must be accessible on the port 5432 on localhost{RESET}
-{GREEN}./target/x86_64-unknown-linux-musl/release/{package_name}{RESET}
-  {YELLOW}In the browser or in curl open{RESET}
-{GREEN}http://localhost:8011/webpage_hit_counter/get_svg_image/555555.svg{RESET}
-  {YELLOW}if {package_name} ok then{RESET}
+  {YELLOW}After `cargo auto wasi_release`, run the compiled binary, examples and/or tests{RESET}
+  {YELLOW}Use the Wasmtime runtime{RESET}
+
+  {YELLOW}if  {package_name} ok then{RESET}
 {GREEN}cargo auto doc{RESET}
 "#,
         package_name = cargo_toml.package_name(),
@@ -262,65 +252,9 @@ fn task_commit_and_push(arg_2: Option<String>) -> anyhow::Result<()> {
     println!(
         r#"
   {YELLOW}After `cargo auto commit_and_push "message"`{RESET}
-{GREEN}cargo auto publish_to_web{RESET}
-"#
-    );
-    Ok(())
-}
-
-/// publish to web for podman container and git tag
-fn task_publish_to_web() -> anyhow::Result<()> {
-    println!(
-        r#"
-    {YELLOW}Use ssh-agent and ssh-add to store the ssh credentials.{RESET}
-"#
-    );
-
-    let cargo_toml = cl::CargoToml::read()?;
-    // let package_name = cargo_toml.package_name();
-    let version = cargo_toml.package_version();
-    // take care of tags
-    let _tag_name_version = cl::git_tag_sync_check_create_push(&version)?;
-
-    // rsync upload files to the existing remote transfer_folder
-    cl::run_shell_command_static("rsync -e ssh -a --info=progress2 ./target/x86_64-unknown-linux-musl/release/webpage_hit_counter luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/")?;
-    cl::run_shell_command_static(
-        "rsync -e ssh -a --info=progress2 ./.env luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/",
-    )?;
-    cl::run_shell_command_static("rsync -e ssh -a --info=progress2 ./deploy/buildah_image_webpage_hit_counter.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/")?;
-    cl::run_shell_command_static("rsync -e ssh -a --info=progress2 ./deploy/webpage_hit_counter_pod_create.sh luciano_bestia@bestia.dev:/var/www/transfer_folder/webpage_hit_counter/")?;
-
-    println!(
-        r#"
-    {YELLOW}After `cargo auto publish_to_web`, connect to the google VM bash using SSH.{RESET}
-{GREEN}ssh -i ~/.ssh/ssh_certificate username@domain -v{RESET}
-    {YELLOW}There are 2 possible way to install webpage_hit_counter on the server:{RESET}
-    {YELLOW}1. standalone executable or{RESET}
-    {YELLOW}2. podman container (it takes more space){RESET}
-
-    {YELLOW}STANDALONE EXECUTABLE{RESET}
-    {YELLOW}First stop the executable webpage_hit_counter in Zellij or Screen terminal multiplexer.{RESET}
-{GREEN}mkdir -p ~/bin/hit_counter_and_env{RESET}
-{GREEN}cp /var/www/transfer_folder/webpage_hit_counter/webpage_hit_counter ~/bin/hit_counter_and_env/webpage_hit_counter{RESET}
-{GREEN}cp /var/www/transfer_folder/webpage_hit_counter/.env ~/bin/hit_counter_and_env/.env{RESET}
-{GREEN}sudo chmod +x ~/bin/hit_counter_and_env/webpage_hit_counter{RESET}
-{GREEN}cd ~/bin/hit_counter_and_env{RESET}
-{GREEN}./webpage_hit_counter{RESET}
-
-    {YELLOW}PODMAN CONTAINER{RESET}
-    {YELLOW}Stop and remove the old pod for webpage_hit_counter{RESET}
-{GREEN}podman pod rm -f webpage_hit_counter_pod{RESET}
-    {YELLOW}There run the bash scripts to create the image and to create the pod.{RESET}
-{GREEN}cd /var/www/transfer_folder/webpage_hit_counter{RESET}
-{GREEN}sh buildah_image_webpage_hit_counter.sh{RESET}
-{GREEN}sh webpage_hit_counter_pod_create.sh{RESET}
-    {YELLOW}Test the postgres server:{RESET}
-{GREEN}psql -h localhost -p 5432 -U admin -W{RESET}
-
-    {YELLOW}In both cases test the web application locally:{RESET}
-{GREEN}curl http://localhost:8011/webpage_hit_counter/get_svg_image/555555.svg{RESET}
-    {YELLOW}Test the web application on the internet:{RESET}
-{GREEN}curl https://bestia.dev/webpage_hit_counter/get_svg_image/555555.svg{RESET}
+  {YELLOW}Now, write the content of the release in the RELEASES.md in the `## Unreleased` section, then{RESET}
+  {YELLOW}Next, create the GitHub Release.{RESET}
+{GREEN}cargo auto github_new_release{RESET}
 "#
     );
     Ok(())

@@ -6,18 +6,15 @@
 [//]: # (auto_cargo_toml_to_md start)
 
 **05. Tutorial for Coding simple Web Server with Database in Rust (webpage_hit_counter) (2022-08)**  
-***version: 1.0.66 date: 2024-07-19 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/webpage_hit_counter)***
+***version: 1.0.68 date: 2025-11-01 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/webpage_hit_counter)***
 
- ![maintained](https://img.shields.io/badge/maintained-green)
- ![ready_for_use](https://img.shields.io/badge/ready_for_use-green)
  ![webserver](https://img.shields.io/badge/webserver-orange)
  ![database](https://img.shields.io/badge/database-orange)
- ![youtube](https://img.shields.io/badge/youtube-orange)
 
 [//]: # (auto_cargo_toml_to_md end)
 
 [//]: # (auto_lines_of_code start)
-[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-159-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
+[![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-171-green.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-9-blue.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-29-purple.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
 [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-19-yellow.svg)](https://github.com/bestia-dev/webpage_hit_counter/)
@@ -44,7 +41,7 @@ I am using the Rust development environment inside a docker container we created
 
 This project has also a youtube video tutorial. Watch it:
 <!-- markdownlint-disable MD033 -->
-[<img src="https://bestia.dev/youtube/webpage_hit_counter.jpg" width="400px">](https://bestia.dev/youtube/webpage_hit_counter.html)
+[<img src="https://bestia.dev/youtube/webpage_hit_counter.jpg" alt="webpage_hit_counter" width="400px">](https://bestia.dev/youtube/webpage_hit_counter.html)
 <!-- markdownlint-enable MD033 -->
 
 ## webpage hit counter

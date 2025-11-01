@@ -2,27 +2,27 @@
   "vec_file_metadata": [
     {
       "filename": "Cargo.toml",
-      "filehash": "6b5994628c71cd15043e0ae8ac93e34f64186d2869ec814f3c8181a4e5dc6188"
+      "filehash": "7a2d4a51802420af676e0e44f98c820834f182095a4116b942ebd8fefc2d8a9d"
     },
     {
-      "filename": "src/actix_mod.rs",
-      "filehash": "612b051d6eba5ff36231dec2782ea8e2e748ab27ddb065ac0b5e2dce5a2df336"
-    },
-    {
-      "filename": "src/bin/webpage_hit_counter/main.rs",
-      "filehash": "28a1e4dac9194b87d7b13683657f958d938f6d588318c5deb1800cf12e4cc7fd"
-    },
-    {
-      "filename": "src/deadpool_mod.rs",
-      "filehash": "bb1369d8175b189138ac695c194877807626598dd540940bfd58737ec4ab9790"
+      "filename": "src/postgres_mod.rs",
+      "filehash": "25e929898cd76f6d190c7682bda250ac9d9e5234747094bdf8f736214bff3c0c"
     },
     {
       "filename": "src/lib.rs",
       "filehash": "b23d923452c4fdb74a82d2cfb9fbd114209392bb8f3b3304ee1460fb307ad722"
     },
     {
-      "filename": "src/postgres_mod.rs",
-      "filehash": "f2c0eea5e669b6da1a47811bccdd3c5f9bef9c4da816c4a8147dd5dcde73c2e7"
+      "filename": "src/bin/webpage_hit_counter/main.rs",
+      "filehash": "fa17bd7a1e6b7670cb4e76b003db798e85328c720379a5406a7c4be8f40a61bc"
+    },
+    {
+      "filename": "src/actix_mod.rs",
+      "filehash": "9ce9154967e44e2fcce5182804a18f4fbfea9809c1b7dabbc1f9cfc29bfccbab"
+    },
+    {
+      "filename": "src/deadpool_mod.rs",
+      "filehash": "ae7ad302e4e1ea1a0aa60412b8a271f4cb7623f755eeeb291456331e10246a40"
     }
   ]
 }
